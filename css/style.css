@@ -1,0 +1,1068 @@
+/* =========================================================
+   BRUNA LOPES DESIGN — visual system
+   bauhaus × collage × medievalism × pop-pixel
+   ========================================================= */
+
+:root {
+  --oliva: #2b331d;
+  --oliva-deep: #1f2614;
+  --cru: #ece7db;
+  --rosa: #f1989b;
+  --lima: #d9e021;
+  --vinho: #7f132b;
+  --melancia: #e82d2d;
+  --tinta: #16150f;
+
+  --font-display: "Anton", sans-serif;
+  --font-body: "Besley", serif;
+  --font-type: "American Typewriter", "Courier New", serif;
+
+  --musgo: #5c6b3a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  position: relative;
+  background: var(--cru);
+  color: var(--tinta);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"><path d="M4 1h2v2h2v2h2v2h2v2h2v2h2v2h2v2h-8v2h-2v2H6v-2H4V1z" fill="%2316150f" stroke="%23d9e021" stroke-width="2" paint-order="stroke"/><path d="M6 3h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h-5v2h-1v2H7v-9H6V3z" fill="%23ece7db"/></svg>') 10 2, auto;
+}
+
+a, button {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"><path d="M4 1h2v2h2v2h2v2h2v2h2v2h2v2h2v2h-8v2h-2v2H6v-2H4V1z" fill="%237f132b" stroke="%23d9e021" stroke-width="2" paint-order="stroke"/><path d="M6 3h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h-5v2h-1v2H7v-9H6V3z" fill="%23d9e021"/></svg>') 10 2, pointer;
+}
+
+::selection { background: var(--lima); color: var(--tinta); }
+
+img { max-width: 100%; display: block; }
+
+/* utility type */
+.px { font-family: var(--font-type); font-size: 1.0em; letter-spacing: 0.02em; }
+.multiply { mix-blend-mode: multiply; filter: brightness(1.32) contrast(1.12); }
+
+/* grain overlay — absolute (not fixed!): rasterized once and scrolls with
+   the page; a fixed full-viewport texture froze scrolling/capture */
+body::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.05;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="180" height="180" filter="url(%23n)" opacity="0.9"/></svg>');
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: color-mix(in srgb, var(--cru) 58%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--musgo);
+}
+
+.logo { text-decoration: none; color: var(--tinta); line-height: 1.05; }
+.logo-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vinho);
+}
+.logo-sub {
+  display: block;
+  font-family: var(--font-type);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-nav { display: flex; gap: 1.2rem; align-items: center; }
+.site-nav a {
+  position: relative;
+  font-family: var(--font-type);
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  color: var(--tinta);
+  padding: 0.32rem 0.8rem;
+  border-radius: 2px;
+  box-shadow: 0 0 0 0 transparent;
+  /* lifted-button hover (like .hbtn): the lima shadow extrudes to the
+     bottom-right first, then the link lifts diagonally up-left as if being
+     picked up off the surface. */
+  transition: color 0.18s,
+              box-shadow 0.13s ease,
+              transform 0.26s cubic-bezier(.34, 1.56, .64, 1) 0.06s;
+}
+.site-nav a:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 0 var(--lima);
+}
+/* active page: filled musgo + lima text (still lifts on hover) */
+.site-nav a.active,
+.site-nav a[aria-current="page"] {
+  background: var(--musgo);
+  color: var(--lima);
+}
+
+/* language toggle — same lifted-button hover as the nav links, but a
+   bordered chip since it's a <button>, not a link */
+.lang-toggle {
+  font-family: var(--font-type);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--tinta);
+  background: none;
+  border: 1px solid var(--tinta);
+  padding: 0.28rem 0.7rem;
+  border-radius: 2px;
+  box-shadow: 0 0 0 0 transparent;
+  transition: color 0.18s,
+              box-shadow 0.13s ease,
+              transform 0.26s cubic-bezier(.34, 1.56, .64, 1) 0.06s;
+}
+.lang-toggle:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 0 var(--lima);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-nav a:hover,
+  .f-links a:hover { transform: none; }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.05fr);
+  gap: 2vw;
+  align-items: center;
+  padding: 7.5rem 4vw 4rem;
+  overflow: visible;
+}
+
+/* translateX capped at the hero's own right padding (4vw), not a flat 15%:
+   15% of hero-text's own width pushes it past the viewport at every desktop
+   size, which would need overflow-x:hidden to contain — but mixing hidden
+   on one axis with visible on the other makes browsers compute the visible
+   axis as auto, which turns into a real scrollbar wherever content (like
+   hero-grid's bleed) actually overflows that axis. Capping the shift so it
+   never leaves the padding avoids needing any clip on .hero at all. */
+.hero-text { position: relative; z-index: 6; transform: translateX(min(15%, 3.5vw)); }
+
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7.2rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--tinta);
+}
+.hero-title .line { display: block; }
+.hero-title .outline {
+  color: transparent;
+  -webkit-text-stroke: 2.5px var(--tinta);
+}
+/* accent word in each section title — the hero "&", the manifesto "purpose",
+   the work "résumé" — all share one italic typewriter treatment */
+.hero-title .amp,
+.manifesto h2 .purpose,
+.work h2 .frak {
+  font-family: var(--font-type);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: var(--melancia);
+}
+/* the hero "&" additionally sheds the big title's stroke, tracking and size */
+.hero-title .amp {
+  font-size: 0.85em;
+  letter-spacing: 0;
+  -webkit-text-stroke: 0;
+}
+
+.hero-lede {
+  max-width: 34rem;
+  margin-top: 1.6rem;
+  font-size: 1.12rem;
+  font-family: var(--font-type);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+/* ---- collage ---- */
+/* NOTE: .collage must NOT create a stacking context (no z-index/transform),
+   otherwise mix-blend-mode on children can't reach the page background */
+.collage {
+  position: relative;
+  height: min(78vh, 700px);
+}
+
+.c-item { position: absolute; }
+
+.c-blob {
+  top: 8%; right: 4%;
+  width: min(30vw, 400px);
+  z-index: 3;
+}
+.blob-shape { width: 100%; height: auto; display: block; }
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+.marquee {
+  background: var(--lima);
+  overflow: hidden;
+  padding: 0.7rem 0;
+  position: relative;
+  z-index: 10;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite; /* duration overridden by JS builder */
+}
+.marquee-group {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;      /* vertically centers text + ✳ within the band */
+  gap: 1rem;
+  padding-right: 1rem;      /* keeps the rhythm across the group seam */
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: var(--tinta);
+}
+.marquee-group .px { flex: 0 0 auto; color: var(--vinho); line-height: 1; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* =========================================================
+   MANIFESTO
+   ========================================================= */
+.manifesto {
+  background: var(--cru);
+  color: var(--tinta);
+  padding: 7rem 6vw 8rem;
+  position: relative;
+  overflow: visible;
+}
+.manifesto-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+.manifesto h2, .manifesto-cols { position: relative; z-index: 1; }
+
+.manifesto h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+  color: var(--tinta);
+}
+
+.manifesto-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 60rem;
+}
+
+/* =========================================================
+   AREAS
+   ========================================================= */
+.areas { padding: 6.5rem 6vw; }
+
+.areas-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.areas-title .px { color: var(--vinho); }
+
+.areas-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* each blob-block layers: fill shape (blob-shape) + spinning circular text
+   nested inside it (blob-ring, textPath on a circle sized to stay within
+   the shape) + centered label (blob-name). transform holds the
+   scroll-driven --drift-x (see main.js); scale is a separate property so
+   hover doesn't fight the drift transform. */
+.blob-block {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(300px, 37vw, 483px);
+  text-decoration: none;
+  transform: translateX(var(--drift-x, 0px));
+  transition: scale 0.2s ease;
+}
+.blob-block:hover { scale: 1.04; }
+
+.block-design { aspect-ratio: 2040.23 / 1577.98; z-index: 2; margin-right: -9%; }
+.block-uiux { aspect-ratio: 1904.43 / 1543.88; z-index: 1; margin-left: -9%; }
+
+.blob-shape { position: absolute; inset: 0; width: 100%; height: 100%; }
+.block-design .blob-shape path { fill: #e82d2d; opacity: .3; }
+.block-uiux .blob-shape path { fill: var(--lima); }
+
+.blob-name {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  line-height: 0.95;
+  text-transform: lowercase;
+  text-align: center;
+  color: var(--tinta);
+}
+
+/* spinning circular text, nested inside the blob (not around it) */
+.blob-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  animation: ring-spin 26s linear infinite;
+}
+.blob-block:hover .blob-ring { animation-duration: 9s; }
+.ring-text {
+  font-family: var(--font-type);
+  text-transform: lowercase;
+  fill: var(--tinta);
+}
+.block-design .ring-text { font-size: 55px; letter-spacing: 12px; }
+.block-uiux .ring-text { font-size: 51px; letter-spacing: 11px; }
+@keyframes ring-spin { to { transform: rotate(360deg); } }
+
+/* =========================================================
+   WORK
+   ========================================================= */
+.work {
+  background: var(--rosa);
+  padding: 7rem 6vw;
+  position: relative;
+  overflow: visible;
+  transition: background-color 0.6s ease;
+}
+.work-inner { max-width: 900px; margin: 0 auto; position: relative; }
+
+.w-cafeteira {
+  position: absolute;
+  right: 0; top: -8rem;
+  width: min(30vw, 240px);
+  opacity: 0.85;
+  mix-blend-mode: color-burn;
+}
+
+.work h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 1.6rem;
+}
+/* .work h2 .frak styled by the shared accent-word rule (see hero) */
+
+.work p { max-width: 34rem; font-size: 1.1rem; }
+.work p:not(.px) a { color: var(--vinho); font-weight: 600; }
+
+/* =========================================================
+   EXPANDABLE RÉSUMÉ (home, "Twenty years" section)
+   ========================================================= */
+.resume-more {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease;
+}
+.resume-more-inner {
+  overflow: hidden;
+  opacity: 0;
+  padding-left: 0.5rem;
+  transition: opacity 0.4s ease 0.1s;
+}
+.resume-more.open { grid-template-rows: 1fr; }
+.resume-more.open .resume-more-inner { opacity: 1; }
+
+.rm-block { margin-top: 3rem; }
+.rm-block .cv-h .px { color: var(--vinho); }
+
+/* staggered reveal when the résumé is expanded — the toggle adds .in to every
+   .reveal inside at once, and these delays cascade them in one after another,
+   mirroring resume.html's on-scroll block load */
+.resume-more-inner > .reveal:nth-child(1) { transition-delay: 0.04s; }
+.resume-more-inner > .reveal:nth-child(2) { transition-delay: 0.13s; }
+.resume-more-inner > .reveal:nth-child(3) { transition-delay: 0.22s; }
+.resume-more-inner > .reveal:nth-child(4) { transition-delay: 0.31s; }
+.resume-more-inner > .reveal:nth-child(5) { transition-delay: 0.40s; }
+
+/* the whole section fades rosa → cru when the résumé is opened */
+.work:has(.resume-more.open) { background: var(--cru); }
+
+/* contact & details links: lima highlight, no underline (clone keeps the
+   highlight on both lines when a long link wraps) */
+.work .cv-meta a {
+  background: color-mix(in srgb, var(--lima) 30%, transparent);
+  text-decoration: none;
+  padding: 0.05em 0.3em;
+  border-radius: 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.work .cv-meta a:hover { background: color-mix(in srgb, var(--lima) 65%, transparent); }
+
+/* emphatic inline accent (BA in Graphic Design, native, fluent) */
+.emph {
+  font-family: var(--font-type);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--melancia);
+}
+.emph-2 {
+  font-family: var(--font-type);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--musgo);
+}
+/* résumé section: every pixel label/mark becomes bold typewriter */
+.work .px { font-family: var(--font-type); font-weight: 700; }
+
+/* tune shared cv styles for the section */
+.work .cv-tools { background: var(--cru); }
+.work .cv-timeline > li { border-bottom-color: color-mix(in srgb, var(--tinta) 45%, transparent); }
+.work .cv-when { color: var(--vinho); }
+
+
+/* Profile block: copy on the left, portrait on the right */
+.profile-row { display: flex; gap: 2.5rem; align-items: flex-start; }
+.profile-row p { flex: 1; margin: 0; }
+.profile-photo {
+  flex: 0 0 auto;
+  width: min(34%, 260px);
+  border: 2px solid var(--tinta);
+  box-shadow: 6px 6px 0 var(--musgo);
+}
+@media (max-width: 700px) {
+  .profile-row { flex-direction: column; align-items: center; }
+  .profile-photo { width: min(70%, 240px); }
+}
+
+#resume-toggle { font-family: var(--font-type); font-weight: 700; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: var(--lima);
+  padding: 6rem 6vw 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.f-content { position: relative; max-width: 1100px; margin: 0 auto; }
+
+.f-kicker { font-size: 0.95rem; margin-bottom: 1rem; }
+
+.f-mail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 0 3.5rem;
+}
+
+.f-mail-col { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+
+.f-mail {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  line-height: 0.98;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: var(--vinho);
+  transition: color 0.15s;
+}
+.f-mail:hover { color: var(--musgo); }
+
+.f-phone {
+  font-family: var(--font-type);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: var(--tinta);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.f-phone:hover { color: var(--musgo); }
+
+.f-links { display: flex; flex-direction: column; gap: 1.4rem; flex-shrink: 0; }
+/* same lifted-button hover as .site-nav a — but the footer sits on lima, so
+   the shadow is musgo (a lima shadow would vanish into the background) */
+.f-links a {
+  position: relative;
+  /* text style matches the navbar navlinks (.site-nav a) */
+  font-family: var(--font-type);
+  font-size: 0.95rem;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  color: var(--tinta);
+  text-decoration: none;
+  padding: 0.32rem 0.8rem;
+  border-radius: 2px;
+  box-shadow: 0 0 0 0 transparent;
+  transition: color 0.18s,
+              box-shadow 0.13s ease,
+              transform 0.26s cubic-bezier(.34, 1.56, .64, 1) 0.06s;
+}
+.f-links a:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 0 var(--rosa);
+}
+
+.f-note { font-size: 0.95rem; opacity: 0.75; }
+
+@media (max-width: 700px) {
+  .f-mail-row { flex-direction: column; align-items: flex-start; gap: 1.6rem; margin-bottom: 2.5rem; }
+  .f-links { flex-direction: row; flex-wrap: wrap; }
+}
+
+/* =========================================================
+   BUTTON VARIANTS / HELPERS
+   ========================================================= */
+.hero-actions.center { justify-content: center; margin: 4rem auto 1rem; }
+
+/* =========================================================
+   PAGE HERO (inner pages)
+   ========================================================= */
+.page-hero {
+  position: relative;
+  padding: 10rem 6vw 4.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.ph-engraving {
+  position: absolute;
+  top: 5.5rem; right: 4vw;
+  width: min(24vw, 280px);
+  transform: rotate(8deg);
+  z-index: -1;
+}
+.hero-kicker {
+  font-family: var(--font-type);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vinho);
+}
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 10vw, 8.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin: 0.6rem 0 1.4rem;
+  letter-spacing: 0.01em;
+}
+.page-title .outline { color: transparent; -webkit-text-stroke: 2.5px var(--tinta); }
+.page-lede { max-width: 38rem; font-size: 1.15rem; }
+.page-hero .hero-actions { margin-top: 2rem; }
+
+/* =========================================================
+   PAGE HERO — split (illustration blob + copy)
+   used by design.html / uiux.html; resume.html keeps the plain
+   .page-hero (no .ph-split inside → unaffected by this block)
+   ========================================================= */
+.ph-split {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.86fr) 1fr;
+  align-items: center;
+  gap: 2vw;
+}
+.ph-illustration {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+}
+/* same blob-shadow spec as the index hero's SVG filter (Y 120, blur 30,
+   olive, 20% opacity) — turns out that filter has no actual blend-mode
+   (feDropShadow can't do one; "Multiply" was a Figma-side label), it's a
+   plain drop shadow living inside a viewBox that scales with the artwork.
+   At the index hero's typical rendered size (~720px) that scales down to
+   ~30px offset / ~7.5px blur — reproduced here directly with the existing
+   drop-shadow (CSS' feDropShadow equivalent), scaled for each illustration
+   instead of reintroducing a viewBox to scale it automatically. */
+.ph-blob {
+  position: absolute;
+  left: 0; top: 8%;
+  width: 96%; height: auto;
+  z-index: 1;
+  transform: scale(var(--scale-in, 1));
+  filter: drop-shadow(0 20px 5px color-mix(in srgb, var(--musgo) 20%, transparent));
+}
+.ph-figure {
+  position: absolute;
+  left: 15%; top: 21%;
+  width: 72%; height: auto;
+  z-index: 2;
+  filter: drop-shadow(0 6px 14px rgba(22,21,15,0.18));
+  transform: scale(var(--scale-in, 1));
+}
+.ph-beziers {
+  position: absolute;
+  left: 4%; top: -6%;
+  width: 78%; height: auto;
+  z-index: 3;
+  pointer-events: none;
+  transform: scale(var(--scale-in, 1));
+}
+.ph-copy { position: relative; z-index: 2; }
+.ph-copy .page-title { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .ph-split { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+  .ph-illustration { width: min(72vw, 340px); margin: 0 auto; }
+  .ph-copy .page-lede { margin-left: auto; margin-right: auto; }
+}
+
+/* =========================================================
+   CV / RESUME
+   ========================================================= */
+.cv { max-width: 1100px; margin: 0 auto; padding: 1rem 6vw 6rem; }
+
+.cv-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  border-top: 1px solid var(--tinta);
+  border-bottom: 1px solid var(--tinta);
+  padding: 1.6rem 0;
+  margin-bottom: 3.5rem;
+  font-size: 0.95rem;
+}
+/* label chip — merges the old `.px cv-label` pair into one class (pixel-era
+   attributes kept as typewriter bold, per the résumé section's type choice) */
+.cv-tag {
+  display: block;
+  color: var(--vinho);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-type);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.cv-meta a { color: var(--tinta); }
+.cv-meta a:hover { color: var(--vinho); }
+
+.cv-section { margin-bottom: 4rem; }
+.cv-h {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+.cv-h .px { color: var(--vinho); }
+.cv-section > p { max-width: 46rem; }
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.cv-card {
+  padding: 1.8rem;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 0 transparent;
+  /* same lifted-button hover as .site-nav a / .f-links a, no resting
+     background/border/shadow — the card itself behaves like a nav link */
+  transition: border-color 0.13s ease,
+              box-shadow 0.13s ease,
+              transform 0.26s cubic-bezier(.34, 1.56, .64, 1) 0.06s;
+}
+.cv-card:hover { transform: translate(-5px, -5px); }
+.cv-card-rosa:hover { border-color: var(--rosa); box-shadow: 5px 5px 0 var(--rosa); }
+.cv-card-lima:hover { border-color: var(--lima); box-shadow: 5px 5px 0 var(--lima); }
+.cv-card h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.cv-card ul { list-style: none; }
+.cv-card li { margin-bottom: 0.9rem; font-size: 0.98rem; }
+
+.cv-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.cv-timeline { list-style: none; }
+.cv-timeline > li {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.5rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--tinta) 40%, transparent);
+}
+.cv-when { color: var(--vinho); padding-top: 0.35rem; }
+.cv-timeline h3, .cv-timeline h4 { font-family: var(--font-display); font-size: 1.25rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+.cv-at { font-family: var(--font-body); font-size: 0.95rem; text-transform: none; font-weight: 400; font-style: italic; }
+.cv-timeline p { font-size: 0.98rem; max-width: 44rem; }
+
+/* =========================================================
+   PROJECTS (area pages)
+   ========================================================= */
+.projects { max-width: 1100px; margin: 0 auto; padding: 2rem 6vw 6rem; }
+
+/* case collage — moss thumb (project cover placeholder) + organic blob
+   tag card, absolutely positioned & overlapping inside a fixed-height
+   row so the composition reads as one hand-cut collage, not a grid */
+.case-collage {
+  /* mobile-first stacked fallback until the responsive spec is defined;
+     the pixel-exact 1400px collage kicks in at >=1400px (media query below) */
+  max-width: 640px;
+  margin: 1.5rem auto 0;
+}
+.case {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.6rem;
+}
+.case-thumb {
+  background: var(--musgo);
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+.case-tag {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74%;
+  aspect-ratio: 1 / 1;
+  margin-top: -12%;
+  /* lifted-button hover like .site-nav a, but bigger and drier (no overshoot,
+     no box-shadow) — shape + text move together as one unit */
+  transition: transform 0.15s ease-out;
+}
+.case-tag:hover { transform: translate(-14px, -14px); }
+.case-tag-shape {
+  position: absolute;
+  /* per-blob knobs — override via .case--N .case-tag-shape (defaults = fill) */
+  left: var(--blob-x, 0);
+  top: var(--blob-y, 0);
+  width: var(--blob-w, 100%);
+  height: var(--blob-h, auto);
+  /* lift the global img { max-width:100% } so --blob-w can exceed the tag box */
+  max-width: none;
+  max-height: none;
+  z-index: 1;
+  /* same blob-shadow spec as .ph-blob above, scaled down for these
+     smaller collage blobs */
+  filter: drop-shadow(0 12px 3px color-mix(in srgb, var(--musgo) 20%, transparent));
+}
+.case-tag-content {
+  position: relative;
+  z-index: 1;
+  max-width: 68%;
+  text-align: left;
+}
+.case-tag-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.95;
+  font-size: clamp(2.4rem, 10vw, 3.3rem);
+  color: var(--tinta);
+  text-align: left;
+}
+.case-tag-title .amp {
+  font-family: var(--font-type);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: var(--melancia);
+}
+
+.case-tag-list {
+  list-style: none;
+  margin-top: 0.45rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.12rem 0.4rem;
+}
+.case-tag-list li {
+  font-family: var(--font-type);
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+  color: var(--melancia);
+  white-space: nowrap;
+}
+
+/* uiux.html gallery — amp & tag list in vinho instead of melancia */
+.page-uiux .case-collage .case-tag-title .amp,
+.page-uiux .case-collage .case-tag-list li {
+  color: var(--vinho);
+}
+
+/* ===== exact 1400px collage (desktop) — sizes & positions from the mockup =====
+   at >=1400px each .case IS a thumbnail box, absolutely placed on a 1400px
+   stage; its .case-tag (blob + text) is absolutely positioned to overhang the
+   thumbnail's edge. Every value is pixel-precise for a 1400px screen and easy
+   to nudge. Vertical rhythm is a clean 130px gap between consecutive boxes.
+   Smaller resolutions use the stacked fallback above (responsive spec pending). */
+@media (min-width: 1400px) {
+  .projects { max-width: 1400px; padding-left: 0; padding-right: 0; }
+  .areas-title { padding-left: 1.5rem; }
+
+  .case-collage {
+    position: relative;
+    width: 1400px;
+    max-width: 1400px;
+    height: 2700px;   /* box5 bottom (1690 + 780) + bottom-blob overhang */
+    margin: 2.5rem auto 0;
+  }
+  .case { position: absolute; display: block; margin: 0; }
+  .case-thumb { position: absolute; inset: 0; width: auto; aspect-ratio: auto; }
+  .case-tag { position: absolute; width: 360px; height: 320px; margin: 0; }
+
+  /* thumbnails — left · top · width · height */
+  .case--1 { left: 150px; top: 0;      width: 520px; height: 330px; }
+  .case--2 { left: 306px; top: 450px;  width: 420px; height: 510px; }
+  .case--3 { left: 150px; top: 1070px; width: 720px; height: 330px; }
+  .case--4 { left: 150px; top: 1560px; width: 520px; height: 480px; }
+  .case--5 { left: 800px; top: 1500px; width: 400px; height: 780px; }
+
+  /* blobs — offset to overhang each thumbnail (relative to its top-left) */
+  .case--1 .case-tag { left: 330px;  top: 150px;  }  /* right  */
+  .case--2 .case-tag { left: -210px; top: 10px;   }  /* left   */
+  .case--3 .case-tag { left: 720px;  top: 20px;  }  /* right  */
+  .case--4 .case-tag { left: 160px; top: -180px; }  /* top-left */
+  .case--5 .case-tag { left: 55px;   top: 560px;  }  /* bottom */
+
+  /* blob image — size & position of each SVG inside its .case-tag, independent
+     of the text. Knobs: --blob-w (largura) · --blob-h (altura) · --blob-x
+     (desloca →) · --blob-y (desloca ↓). Aceita px ou %. Defaults = preenche. */
+  .case--1 .case-tag-shape { --blob-w: 430px; --blob-h: 345px; --blob-x: -30px; --blob-y: 0px; }
+  .case--2 .case-tag-shape { --blob-w: 360px; --blob-h: 420px; --blob-x: 0px; --blob-y: -20px; }
+  .case--3 .case-tag-shape { --blob-w: 440px; --blob-h: 360px; --blob-x: -40px; --blob-y: 0px; }
+  .case--4 .case-tag-shape { --blob-w: 390px; --blob-h: 390px; --blob-x: -30px; --blob-y: 0px; }
+  .case--5 .case-tag-shape { --blob-w: 390px; --blob-h: 390px; --blob-x: 10px; --blob-y: 0px; }
+
+  /* case 6 — copy of case 5 (thumb + blob-05), placed to the right of case 1 */
+  .case--6 { right: 200px; top: 0; width: 400px; height: 780px; }
+  .case--6 .case-tag { left: 30px; top: 560px; }   /* bottom, like case 5 */
+  .case--6 .case-tag-shape { --blob-w: 360px; --blob-h: 370px; --blob-x: 0px; --blob-y: 0px; }
+}
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+/* translate (not transform) for the Y-offset: leaves `transform` free for
+   scale/rotate effects on the same element (e.g. .m-bird's scroll-in
+   scale) without the two fighting over one property */
+.reveal {
+  opacity: 0;
+  translate: 0 28px;
+  transition: opacity 0.7s ease, translate 0.7s ease;
+}
+.reveal.in { opacity: 1; translate: none; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 6.5rem;
+    gap: 1rem;
+  }
+  .collage { height: 54vh; order: -1; margin-top: 1rem; }
+  .c-blob { width: min(52vw, 320px); right: 8%; }
+  .manifesto-cols { grid-template-columns: 1fr; gap: 1.4rem; }
+  .areas-stage { flex-direction: column; gap: 2.5rem; }
+  /* below 900px the two areas blocks stack vertically; instead of the
+     desktop side-to-side approach (translateX drift-x), they meet in the
+     middle vertically as you scroll — design settles down, uiux settles up
+     (see data-drift-y / data-drift-y-end on the blocks in index.html) */
+  .blob-block { width: min(83vw, 390px); margin: 0; transform: translateY(var(--drift-y, 0px)); }
+  .w-cafeteira { position: static; width: 28vw; margin: 50px 50px 1rem auto; }
+  .site-nav { gap: 0.9rem; }
+  .site-nav a:not(.nav-cta) { display: none; }
+  .cv-grid { grid-template-columns: 1fr; }
+  .cv-timeline > li { grid-template-columns: 1fr; gap: 0.4rem; }
+  .page-hero { padding-top: 8rem; }
+  .ph-engraving { width: 34vw; opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; translate: none; }
+}
+
+/* =========================================================
+   HERO — collage layer (beziers-clipped photo, grid, birds)
+   & manifesto flying bird (American Typewriter throughout)
+   ========================================================= */
+
+.hero-grid {
+  position: absolute;
+  left: auto; right: 0; top: -37%; bottom: auto;
+  width: 162%; height: 175%;
+  object-fit: cover;
+  opacity: 0.5;
+  z-index: 1; pointer-events: none;
+  transform: scale(0.8);
+  transform-origin: right center;
+}
+/* z-index: 1 (not 0): .manifesto is itself position:relative, so at equal
+   z-index it would win the tie (later in DOM) and paint its background
+   over the grid's bleed. z-index 1 lets the grid paint over that background
+   while manifesto's own text (h2/manifesto-cols, also z-index:1 but later
+   in DOM) still wins ties and stays on top. The marquee's z-index:10 still
+   masks the middle stretch, so the grid reads as hero → gap → manifesto,
+   not hero → through the marquee.
+   oversized box + transform:scale so cells shrink without tiling seams;
+   anchored right and scaled from its right edge so it grows while staying
+   glued there. `right` stays flush at 0 (not negative): a real right-edge
+   bleed pushes document scrollWidth past the viewport, which some browsers
+   (Safari trackpad rubber-band in particular) reveal as a horizontal page
+   shift even with overflow-x: hidden set. */
+
+.hero-collage {
+  position: relative; z-index: 2;
+  aspect-ratio: 2984.52 / 2885.21;
+  width: 100%;
+  transform: translateX(15%);
+}
+/* each collage piece scales independently on scroll (its own rate/direction
+   via data-scale-in/-to on the element), rather than the group scaling as
+   one block — see the scroll-scrubbed scale reveal in main.js */
+.hc-roses {
+  position: absolute; z-index: 1;
+  left: 8.54%; top: 10%; right: auto; bottom: auto;
+  width: 81%; height: auto;
+  pointer-events: none;
+  transform: scale(var(--scale-in, 1));
+}
+.hero-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 3; overflow: visible;
+  transform: scale(var(--scale-in, 1));
+}
+.hc-bird {
+  position: absolute; z-index: 2;
+  left: 5.46%; top: 26.02%; right: auto; bottom: auto;
+  width: 27.2%; height: auto;
+  mix-blend-mode: multiply; 
+}
+/* real connector artwork (beziers.svg) overlaid on the collage — natural
+   aspect, positioned by eye so the nodes touch the photo blobs */
+.hero-connectors {
+  position: absolute;
+  left: 48.99%; top: 3.02%; right: auto; bottom: auto;
+  width: 39.29%; height: auto;
+  object-fit: contain;
+  z-index: 5; overflow: visible; pointer-events: none;
+  transform: scale(var(--scale-in, 1));
+}
+
+/* --- hero buttons (flat, mockup style; pink at 80% opacity + hard
+   coloured shadow) --- */
+.hbtn {
+  font-family: var(--font-type);
+  font-size: 1.05rem;
+  text-transform: lowercase;
+  text-decoration: none;
+  padding: 0.7rem 1.9rem;
+  color: var(--tinta);
+  border: none;
+  box-shadow: 6px 6px 0 var(--musgo);
+  transition: transform 0.14s ease, filter 0.14s ease;
+}
+.hbtn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--tinta);
+  filter: none;
+}
+.hbtn-rosa { background: color-mix(in srgb, var(--melancia) 30%, transparent); }
+.hbtn-lima { background: color-mix(in srgb, var(--lima) 70%, transparent); }
+
+/* --- manifesto: light bg + flying bird --- */
+/* .manifesto h2 .purpose styled by the shared accent-word rule (see hero) */
+.manifesto-cols p { font-family: var(--font-type); color: var(--tinta) }
+.m-bird {
+  position: absolute;
+  right: 0; bottom: -14%;
+  width: min(36vw, 380px);
+  z-index: 0; pointer-events: none;
+  /* scroll-driven diagonal drift on both axes (--drift-x / --drift-y) + scale */
+  transform: translate(var(--drift-x, 0px), var(--drift-y, 0px)) scale(var(--scale-in, 1));
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-collage { order: -1; max-width: 80%; margin: 0 auto; }
+  .hero-collage, .hero-text { transform: none; }
+  .m-bird { position: static; width: 44vw; margin: calc(1.5rem + 60px) auto 0; display: block; }
+}
+
+/* cap the hero body copy width so it doesn't run too long against the
+   collage on laptop/tablet; full 34rem stays on 1440+ */
+@media (max-width: 1439px) {
+  .hero-lede { max-width: 450px; }
+}
+@media (max-width: 1139px) {
+  .hero-lede { max-width: 400px; }
+}
+@media (max-width: 900px) {
+  .hero-text { text-align: center; }
+  .hero-lede { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+}
+
+/* proportional collage size bump below 1439px: the collage reads too small
+   once the hero-lede caps its own width on laptop/tablet */
+@media (max-width: 1439px) and (min-width: 901px) {
+  .hero-collage { transform: translateX(10%) scale(1.28); }
+}
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4979.75 4589.78">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#Grid_1_pica_Lines);
+      }
+
+      .cls-2 {
+        stroke: #f1989b;
+        stroke-width: .3px;
+      }
+    </style>
+    <pattern id="Grid_1_pica_Lines" data-name="Grid 1 pica Lines" x="0" y="0" width="72" height="72" patternTransform="translate(-150.8812 -170.0085) rotate(-180) scale(8.4589)" patternUnits="userSpaceOnUse" viewBox="0 0 72 72">
+      <g>
+        <rect class="cls-1" width="72" height="72"/>
+        <g>
+          <line class="cls-2" x1="6" y1="71.75" x2="6" y2="144.25"/>
+          <line class="cls-2" x1="30" y1="71.75" x2="30" y2="144.25"/>
+          <line class="cls-2" x1="54" y1="71.75" x2="54" y2="144.25"/>
+          <line class="cls-2" x1="18" y1="71.75" x2="18" y2="144.25"/>
+          <line class="cls-2" x1="42" y1="71.75" x2="42" y2="144.25"/>
+          <line class="cls-2" x1="66" y1="71.75" x2="66" y2="144.25"/>
+        </g>
+        <g>
+          <line class="cls-2" x1="71.75" y1="66" x2="144.25" y2="66"/>
+          <line class="cls-2" x1="71.75" y1="42" x2="144.25" y2="42"/>
+          <line class="cls-2" x1="71.75" y1="18" x2="144.25" y2="18"/>
+          <line class="cls-2" x1="71.75" y1="54" x2="144.25" y2="54"/>
+          <line class="cls-2" x1="71.75" y1="30" x2="144.25" y2="30"/>
+          <line class="cls-2" x1="71.75" y1="6" x2="144.25" y2="6"/>
+        </g>
+        <g>
+          <line class="cls-2" x1="6" y1="-.25" x2="6" y2="72.25"/>
+          <line class="cls-2" x1="30" y1="-.25" x2="30" y2="72.25"/>
+          <line class="cls-2" x1="54" y1="-.25" x2="54" y2="72.25"/>
+          <line class="cls-2" x1="-.25" y1="66" x2="72.25" y2="66"/>
+          <line class="cls-2" x1="-.25" y1="42" x2="72.25" y2="42"/>
+          <line class="cls-2" x1="-.25" y1="18" x2="72.25" y2="18"/>
+          <line class="cls-2" x1="-.25" y1="54" x2="72.25" y2="54"/>
+          <line class="cls-2" x1="-.25" y1="30" x2="72.25" y2="30"/>
+          <line class="cls-2" x1="-.25" y1="6" x2="72.25" y2="6"/>
+          <line class="cls-2" x1="18" y1="-.25" x2="18" y2="72.25"/>
+          <line class="cls-2" x1="42" y1="-.25" x2="42" y2="72.25"/>
+          <line class="cls-2" x1="66" y1="-.25" x2="66" y2="72.25"/>
+        </g>
+        <g>
+          <line class="cls-2" x1="-72.25" y1="66" x2=".25" y2="66"/>
+          <line class="cls-2" x1="-72.25" y1="42" x2=".25" y2="42"/>
+          <line class="cls-2" x1="-72.25" y1="18" x2=".25" y2="18"/>
+          <line class="cls-2" x1="-72.25" y1="54" x2=".25" y2="54"/>
+          <line class="cls-2" x1="-72.25" y1="30" x2=".25" y2="30"/>
+          <line class="cls-2" x1="-72.25" y1="6" x2=".25" y2="6"/>
+        </g>
+        <g>
+          <line class="cls-2" x1="6" y1="-72.25" x2="6" y2=".25"/>
+          <line class="cls-2" x1="30" y1="-72.25" x2="30" y2=".25"/>
+          <line class="cls-2" x1="54" y1="-72.25" x2="54" y2=".25"/>
+          <line class="cls-2" x1="18" y1="-72.25" x2="18" y2=".25"/>
+          <line class="cls-2" x1="42" y1="-72.25" x2="42" y2=".25"/>
+          <line class="cls-2" x1="66" y1="-72.25" x2="66" y2=".25"/>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="cls-3" d="M3563.32,4292.52c472.36-821.77-893.94-1568.26,660.95-1496.06,1124.6,52.22,912.6-2033.89-102.04-1772.4-762.6,196.53-1230.42-64.26-1227.57-432.16,3.63-468.97-776.55-1021.18-1091.48-72.61-266.73,803.39-567.03,773.92-711.23,272.68C906.59,147.64,35.77,244.44,1.22,987.5c-35.91,772.23,727.27,1405.39,1422.26,888.84,694.99-516.55,2097.36,186.71,1127.46,1072.75-1249.02,1141.01,540.02,2165.21,1012.38,1343.44Z"/>
+  </g>
+</svg>

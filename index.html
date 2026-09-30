@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bruna Lopes — Design & UI/UX</title>
+  <meta name="description" content="Maria Bruna Lopes — designer bridging artistic sensitivity with technical precision. Graphic design, branding & illustration on one side; UI/UX & design-to-code on the other.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Besley:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=30">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23d9e021'/><text x='2' y='13' font-family='monospace' font-size='13' font-weight='bold' fill='%237f132b'>B</text></svg>">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-name">Bruna Lopes</span>
+      <span class="logo-sub">ui/ux — design</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="design.html" data-i18n="nav.design">Design</a>
+      <a href="uiux.html" data-i18n="nav.uiux">UI/UX</a>
+      <a href="#resume" data-i18n="nav.resume">Résumé</a>
+      <a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a>
+      <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch to Portuguese">PT</button>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <img class="hero-grid" src="img/grid-hero.svg" alt="" aria-hidden="true" data-depth="2">
+
+    <!-- photo collage: pink blobs + beziers-clipped photo + bird + connectors -->
+    <div class="hero-collage">
+      <img class="hc-roses" src="img/rose-shapes-photo-hero.svg" alt="" aria-hidden="true" data-depth="0.1" data-scale-in="1.06" data-scale-to="0.96" data-scale-trigger="page" data-scale-range="400">
+
+      <svg class="hero-photo" viewBox="0 0 2984.52 2885.21" data-depth="0.16" data-scale-in="0.92" data-scale-to="1.06" data-scale-trigger="page" data-scale-range="400" role="img" aria-label="Portrait of Maria Bruna Lopes, cut into organic collage shapes">
+        <defs>
+          <clipPath id="blob-clip">
+            <path transform="translate(1492.26 1442.6) scale(0.9) translate(-1492.26 -1442.6)" d="M2962.16,2004.72c-3.24-9.04-6.25-18.17-9.76-27-2.25-5.21-3.38-7.81-5.63-13.02-1.14-2.59-1.7-3.89-2.84-6.48-.95-2.15-2.15-4.18-3.22-6.27-4.46-8.27-8.8-16.74-13.77-24.41-2.49-3.83-4.96-7.97-7.52-11.69-2.55-3.71-5.5-7.52-8.28-11-21.9-27.42-47.55-51.91-78.59-70.76-28.96-17.59-60.27-31.31-92.63-41.15-4.01-1.22-8.01-2.54-12.05-3.65-4.87-1.24-7.31-1.86-12.2-3.1-4.08-1-8.13-2.11-12.23-3-4.93-1-7.4-1.5-12.35-2.5-16.43-3.52-33.12-5.89-49.98-7.84-5.1-.52-7.65-.79-12.77-1.31-4.47-.41-8.58-.54-12.89-.87-8.54-.64-17.06-.96-25.52-1.32-8.46-.36-17.05-.52-25.59-.8-10.28-.11-15.43-.16-25.77-.24-17.23,0-34.58.32-52.03.88-5.24.19-7.86.29-13.11.49-4.38.23-8.77.55-13.16.72-8.78.3-17.6,1.02-26.45,1.58-36.1,2.59-71.98,7.2-107.48,13.13-18.04,3.02-36.25,6.95-54.62,11.16-18.4,4.39-36.67,9.4-55.03,15.06-37.36,12.2-74.38,25.69-109.34,42.06-35.73,16.74-71.55,36.77-104.69,58.24-66.32,42.96-127.48,95.98-182.43,153.67-3.39,3.56-6.73,7-10.14,10.82-3.43,3.84-6.95,7.67-10.28,11.64-3.32,3.96-6.74,7.96-9.98,12.01-3.23,4.04-6.51,8.2-9.62,12.41-12.45,16.81-24.13,34.74-33.63,53.85-9.5,19.08-17.15,39.34-21.94,60.1-1.2,5.18-2.29,10.55-3.09,15.66-.8,5.09-1.52,10.53-1.96,15.76-.85,10.21-1.09,21.82-.27,33.03,1.6,21.87,9.92,48.37,20.78,67.25,11.25,19.55,29.98,40.28,47.78,54.22,17.48,13.69,38.71,26.78,59.27,35.96,5.06,2.26,10.2,4.78,15.3,6.73,5.99,2.38,8.99,3.57,14.97,5.95,7.9,3.18,15.9,6.19,23.67,9.5,62.21,26.52,122.01,58.44,179.72,93.67,28.93,17.66,57.49,36.64,85.65,55.82,29.48,20.08,58.93,40.84,88.65,59.96,32.25,20.76,65.94,39.54,100.56,56.91,19.26,9.12,39.33,17.08,59.85,23.52,20.49,6.51,41.6,11.51,62.37,14.9,39.73,6.49,81.5,6.99,121.56,2.14,19.11-2.31,38.07-6.43,54.64-10.26,8.46-1.96,17.17-4.34,25.63-6.8,4.23-1.23,8.49-2.37,12.7-3.72,5.03-1.72,7.54-2.58,12.56-4.3,33.47-11.55,65.77-26.79,95.15-46.61,30.22-20.39,56.96-45.41,78.48-72.8,21.96-27.95,38.87-60.3,54.01-94.08,2.04-5.06,3.06-7.58,5.11-12.64,1.64-4.22,3.02-8.46,4.54-12.7,1.53-4.22,2.95-8.48,4.26-12.79,1.33-4.3,2.75-8.58,4.01-12.89,5.04-17.26,9.43-34.87,13.11-52.44,3.67-17.57,6.58-35.37,9.1-53.09,2.41-17.72,4.3-35.42,5.88-53.05,1.47-17.62,2.67-35.19,3.49-52.61.82-17.4,1.41-34.73,1.89-52.03.98-35.83.75-71.83-1.18-107.41-.49-9.1-1.28-18.42-2.23-27.56-.48-4.58-.93-9.21-1.53-13.82-.34-2.76-.51-4.15-.85-6.91-.35-2.7-.78-5.8-1.25-8.55-1.91-11.26-4.49-21.4-7.11-30.47-1.31-4.54-2.63-8.83-3.91-12.93-1.5-4.77-2.25-7.16-3.74-11.94Z"/>
+            <path transform="translate(1492.26 1442.6) scale(0.9) translate(-1492.26 -1442.6)" d="M1073.08,1224.59c-144.77,196.83,112.44,280.98,42.32,473.11-37.49,102.72-228.08,261.57-421.78,211.47-752.09-194.52-1016.43,981.75-160.58,976.03,286.06-1.91,407.93-104.83,535.74-385.25,71.3-156.44,253.91-329.8,549.76-570.88,722.08-588.38-236.26-1124.88-545.47-704.47Z"/>
+            <path transform="translate(1492.26 1442.6) scale(0.9) translate(-1492.26 -1442.6)" d="M2060.48,924.36c-101.85-11.26-177.01-160.55-103.32-222.62,418.98-352.85-46.76-905.25-453.08-625.18-231.15,159.33-223.66,415.23-395.44,269.12-230.93-196.41-538.24-48.04-495.47,221.25,42.15,265.47,223.96,364.53,746.74,434.61,133.88,17.95,358.88,15.25,481.78,182.95,292.5,399.14,702.05-206.73,218.79-260.14Z"/>
+          </clipPath>
+          <!-- drop shadow: Multiply, 20%, Y 120, blur 30, olive -->
+          <filter id="blob-shadow" x="-15%" y="-12%" width="130%" height="148%" color-interpolation-filters="sRGB">
+            <feDropShadow dx="0" dy="120" stdDeviation="16" flood-color="#6b6a3d" flood-opacity="0.2"/>
+          </filter>
+        </defs>
+        <g filter="url(#blob-shadow)">
+          <g clip-path="url(#blob-clip)">
+            <image id="hero-photo-img" href="img/photo-bruna-hero_1.png" x="0" y="0" width="2984.52" height="2885.21" preserveAspectRatio="xMidYMid slice"/>
+          </g>
+        </g>
+      </svg>
+
+      <img class="hc-bird" src="img/passaro-hero.png" alt="Vintage engraving of a perched bird" data-depth="0.42">
+
+      <img class="hero-connectors" src="img/beziers.svg" alt="" aria-hidden="true" data-depth="0.6" data-scale-in="0.8" data-scale-to="1.15" data-scale-trigger="page" data-scale-range="400">
+    </div>
+
+    <div class="hero-text">
+      <h1 class="hero-title" data-i18n="idx.hero.title">
+        <span class="line">Graphic</span>
+        <span class="line"><span class="outline">Design</span> <span class="amp">&</span></span>
+        <span class="line">UI<span class="outline">/UX</span></span>
+      </h1>
+      <p class="hero-lede" data-i18n="idx.hero.lede">Bridging artistic sensitivity with technical precision — 20 years turning craft into strategy, pixels into pigment, ideas into impact.</p>
+      <div class="hero-actions">
+        <a class="hbtn hbtn-rosa" href="design.html" data-i18n="idx.hero.cta_design">design</a>
+        <a class="hbtn hbtn-rosa" href="uiux.html" data-i18n="idx.hero.cta_uiux">ui/ux</a>
+        <a class="hbtn hbtn-lima" href="#resume" data-i18n="idx.hero.cta_resume">resumé</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-group" data-i18n="idx.marquee">Branding <span class="px">✳</span> Illustration <span class="px">✳</span> Murals <span class="px">✳</span> Tattoo <span class="px">✳</span> UI/UX <span class="px">✳</span> Design-to-Code <span class="px">✳</span></span>
+      <span class="marquee-group" data-i18n="idx.marquee">Branding <span class="px">✳</span> Illustration <span class="px">✳</span> Murals <span class="px">✳</span> Tattoo <span class="px">✳</span> UI/UX <span class="px">✳</span> Design-to-Code <span class="px">✳</span></span>
+    </div>
+  </div>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto" id="about">
+    <img class="m-bird reveal" src="img/passaro-section-2.png" alt="Vintage engraving of a bird in flight" data-scale-in="0.6" data-drift-x="0" data-drift-end="-130" data-drift-y="0" data-drift-y-end="-130" data-drift-span="0.9">
+    <div class="manifesto-inner">
+      <h2 class="reveal" data-i18n="idx.manifesto.h2">The process<br>is the <span class="purpose">purpose</span></h2>
+      <div class="manifesto-cols">
+        <p class="reveal" data-i18n="idx.manifesto.p1">For me, no experience is ever discarded — everything becomes repertoire. My journey is rooted in a deeply personal philosophy: creating the best possible outcome with the materials at hand. Long before designing complex digital systems, my hands learned the value of structure and craft through manual arts and leatherwork.</p>
+        <p class="reveal" data-i18n="idx.manifesto.p2">Today, my work exists in the tension between the pixel and the pigment. By merging the analytical rigor of a UX/UI designer with the tactile sensitivity of a tattoo artist and muralist, I bridge technology and art — anchoring purpose, aesthetics and humanity into everyday life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TWO AREAS ============ -->
+  <section class="areas" id="areas">
+    <h2 class="areas-title reveal" data-i18n="idx.areas.title"><span class="px">✳</span> Two paths, one designer</h2>
+    <!-- each blob is the real blob-design.svg / blob-uiux.svg outline for the
+         filled shape; the ring text traces a circle centered on the blob but
+         sized to stay INSIDE it (radius ≈ the shape's tightest inscribed
+         circle) so the copy reads as a small loop nested within the shape.
+         data-drift-x (same scroll-scrubbed mechanic as the manifesto bird)
+         slides the two blobs apart→together as the section scrolls into view. -->
+    <div class="areas-stage">
+      <a class="blob-block block-design reveal" href="design.html" data-drift-x="-320" data-drift-end="-20" data-drift-y="0" data-drift-y-end="50" data-drift-span="0.9" data-drift-y-span="0.5" data-i18n-attr="aria-label:idx.areas.design_aria" aria-label="Design — branding, illustration, murals, tattoo">
+        <svg class="blob-shape" viewBox="0 0 2040.23 1577.98" aria-hidden="true">
+          <path d="M2017.87,906.23c-4.02,10.09-7.84,20.25-12.1,30.25-2.85,6.16-4.27,9.26-7.1,15.47-1.43,3.1-2.15,4.66-3.58,7.78-1.19,2.59-2.76,5.29-4.12,7.94-5.76,10.82-11.49,21.72-17.7,32.26-3.16,5.37-6.4,11.05-9.73,16.45-3.32,5.39-7.18,11.22-10.83,16.65-31.34,46.67-66.07,91.76-104.88,133.93-39.77,43.22-82.85,84.74-128.94,123.54-5.68,4.78-11.39,9.67-17.18,14.35-6.99,5.54-10.49,8.31-17.52,13.84-5.87,4.58-11.69,9.26-17.64,13.71-7.16,5.29-10.74,7.92-17.94,13.19-23.74,17.4-48.33,33.93-73.58,49.9-7.6,4.68-11.42,7.01-19.06,11.65-6.69,4-12.91,7.36-19.39,11.08-12.73,7.18-25.65,14.21-38.64,21.02-12.85,6.73-25.98,13.27-39.07,19.8-13.16,6.26-26.38,12.44-39.67,18.54-26.55,11.79-53.52,22.91-81,33.39-8.21,3.07-12.33,4.58-20.58,7.56-6.9,2.4-13.84,4.64-20.75,7.06-13.8,4.71-27.78,9.07-41.83,13.34-55.74,16.17-113.46,28.32-172.66,34.74-29.15,3.16-59.1,4.2-89.14,4.3-30.28-.57-60.36-2.74-90.7-6.58-62.74-9.89-124.24-24.97-182.35-48.45-63.1-25.5-122.69-59.36-177.16-97.07-124.83-86.43-226.14-195.44-317.05-306.21-6.13-7.47-12.22-14.99-18.14-22.54-6.27-7.99-12.54-16.09-18.59-24.17-6.15-8.22-12.32-16.56-18.28-24.86-6.06-8.43-12.09-17.01-17.9-25.55-24.09-35.36-46.61-71.84-66.29-108.69-20.17-37.79-38.06-76.71-52.41-115.79-3.53-9.63-6.94-19.43-10.03-29.11-3.04-9.52-5.93-19.25-8.49-28.82-5.19-19.41-9.55-39.37-12.38-58.82-5.39-37.1-5.39-76.94,6.01-111.89,9.64-29.58,26.9-59.09,52.64-80.9,22.91-19.4,49.44-35.71,79.41-47.4,7.04-2.74,14.4-5.89,21.78-8.07,8.65-2.73,12.98-4.11,21.66-6.9,11.53-3.71,23.24-7.22,34.48-11.31,94.72-34.48,182.02-80.93,264.2-131.24,43.48-26.62,85.52-55.07,127.2-83.61,43.86-30.04,87.5-60.74,133.38-88.47,48.68-29.42,101.39-54.72,156.39-76.84,31.03-10.98,62.99-19.55,96.48-25.67C1030.98,3.42,1065.6.17,1100.42,0c69.19-.33,140.32,10.91,208.31,28.86,32.31,8.53,64.6,19.28,96.17,30.39,15.23,5.36,30.44,11.09,45.5,16.92,7.53,2.92,15.09,5.72,22.6,8.8,9,3.83,13.49,5.73,22.46,9.51,59.76,25.56,117.84,54.36,172.18,87.23,51.93,31.42,101.94,66.75,146,105.68,39.02,34.48,72.9,72.5,104.28,111.83,4.06,5.55,6.08,8.3,10.14,13.76,3.27,4.56,6.09,9.1,9.14,13.59,3.06,4.48,5.95,8.97,8.64,13.48,2.73,4.5,5.61,8.95,8.18,13.39,10,17.31,19.41,35.05,27.49,52.76,7.64,16.76,14.2,34,20.33,51.23,5.4,16.5,10.21,33.01,14.56,49.63,3.82,16.02,7.39,32.11,10.25,48.1,2.77,15.47,5.17,31.17,7.28,46.68,4.32,31.7,6.49,63.55,6.28,95.12-.06,8.32-.61,16.7-1.4,24.94-.4,4.19-.74,8.42-1.32,12.73-.31,2.57-.47,3.85-.78,6.41-.33,2.52-.75,5.43-1.25,8.06-1.96,10.39-4.9,20.58-8.27,30.61-1.59,4.75-3.21,9.33-4.77,13.71-1.84,5.12-2.75,7.68-4.56,12.82Z"/>
+        </svg>
+        <svg class="blob-ring" viewBox="0 0 2040.23 1577.98" aria-hidden="true">
+          <defs>
+            <path id="ring-design" d="M1020.1,789m-610,0a610,610 0 1 1 1220,0a610,610 0 1 1 -1220,0"/>
+          </defs>
+          <text class="ring-text"><textPath href="#ring-design" textLength="3833" lengthAdjust="spacingAndGlyphs" data-i18n="idx.areas.ring_design">branding · illustration · murals · tattoo · branding · illustration · murals · tattoo · </textPath></text>
+        </svg>
+        <span class="blob-name">de<br>sign</span>
+      </a>
+      <a class="blob-block block-uiux reveal" href="uiux.html" data-drift-x="320" data-drift-end="20" data-drift-y="0" data-drift-y-end="-50" data-drift-span="0.9" data-drift-y-span="0.5" data-i18n-attr="aria-label:idx.areas.uiux_aria" aria-label="UI/UX — research, prototyping, design-to-code">
+        <svg class="blob-shape" viewBox="0 0 1904.43 1543.88" aria-hidden="true">
+          <path d="M1508.84,1391.73c321.6-219.74,485.89-651.24,344.56-1018.93-67.39-175.33-251.7-181.09-373.47-204.5-31.44-6.05-61.12-18.94-87.16-37.56C1208.57-1,1031.4-20.24,829.72,16.4c-174.27,31.67-288.9,80.77-457.19,185.71C178.07,323.36-10.86,472.66.49,700.9c17.14,344.81,301.28,309.04,458.14,544.26,260.35,390.42,749.1,352.32,1050.22,146.57Z"/>
+        </svg>
+        <svg class="blob-ring" viewBox="0 0 1904.43 1543.88" aria-hidden="true">
+          <defs>
+            <path id="ring-uiux" d="M952.2,771.9m-580,0a580,580 0 1 1 1160,0a580,580 0 1 1 -1160,0"/>
+          </defs>
+          <text class="ring-text"><textPath href="#ring-uiux" textLength="3644" lengthAdjust="spacingAndGlyphs" data-i18n="idx.areas.ring_uiux">research · prototype · design-to-code · research · prototype · design-to-code · </textPath></text>
+        </svg>
+        <span class="blob-name">UI<br>UX</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ RESUME STRIP ============ -->
+  <section class="work" id="resume">
+    <div class="work-inner">
+      <img class="w-cafeteira multiply reveal" src="img/cafeteira-italiana.png" alt="Ink drawing of a burning match" data-speed="0.05">
+      <h2 class="reveal" data-i18n="idx.work.h2">Twenty years,<br>one <span class="frak">résumé</span></h2>
+      <p class="reveal" data-i18n="idx.work.p">From print shops to product teams — graphic design, branding, murals, tattoo artistry and UI/UX engineering, all in one timeline. Read it right here or grab the PDF that fits the role.</p>
+      <div class="hero-actions reveal">
+        <button class="hbtn hbtn-lima" id="resume-toggle" aria-expanded="false" aria-controls="resume-more">Read the résumé <span class="px">↓</span></button>
+        <a class="hbtn hbtn-rosa" data-i18n="idx.work.pdf_design" data-cv-en="cv/maria-bruna-lopes-resume-design.pdf" data-cv-pt="cv/maria-bruna-lopes-resume-gdpt.pdf" href="cv/maria-bruna-lopes-resume-design.pdf" download>PDF — Design</a>
+        <a class="hbtn hbtn-rosa" data-i18n="idx.work.pdf_uiux" data-cv-en="cv/maria-bruna-lopes-resume-uiux.pdf" data-cv-pt="cv/maria-bruna-lopes-resume-uxpt.pdf" href="cv/maria-bruna-lopes-resume-uiux.pdf" download>PDF — UI/UX</a>
+      </div>
+
+      <!-- expandable résumé blocks -->
+      <div class="resume-more" id="resume-more">
+        <div class="resume-more-inner">
+
+          <div class="rm-block reveal">
+            <h3 class="cv-h" data-i18n="idx.rm.contact_h3">Contact & Details</h3>
+            <div class="cv-meta">
+              <div><span class="cv-tag" data-i18n="tag.contact">[ contact ]</span>+55 62 98119-2575<br><a href="mailto:hello@brunalopesdesign.com">hello@brunalopesdesign.com</a></div>
+              <div><span class="cv-tag" data-i18n="tag.links">[ links ]</span><a href="https://www.linkedin.com/in/maria-bruna-lopes" target="_blank" rel="noopener">linkedin/maria-bruna-lopes</a><br><a href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener">behance/mariabrunalopes</a></div>
+              <div><span class="cv-tag" data-i18n="tag.education">[ education ]</span><span data-i18n="idx.rm.education_value"><span class="emph-2">BA in Graphic Design</span><br>Universidade Federal de Goiás — 2005/2010</span></div>
+              <div><span class="cv-tag" data-i18n="tag.languages">[ languages ]</span><span data-i18n="idx.rm.languages_value">Portuguese <span class="emph-2">native</span><br>English <span class="emph-2">fluent</span></span></div>
+            </div>
+          </div>
+
+          <div class="rm-block reveal">
+            <h3 class="cv-h" data-i18n="idx.rm.profile_h3">Profile</h3>
+            <div class="profile-row">
+              <p data-i18n="idx.rm.profile_p">With 20 years in Graphic Design and UI/UX, I combine technical rigor with artistic sensitivity to create user-centered experiences. Applying Semiotics and Gestalt principles, I communicate deeply through every layer of a layout — from print and packaging to brand systems and digital products. My parallel journey as a muralist and tattoo artist broadens my creative range and gives me the flexibility to solve visual problems on any medium; with Design Thinking, I turn complex requirements into user journeys and implementation-ready interfaces, prototyping my own solutions in HTML, CSS and JavaScript.</p>
+              <img class="profile-photo" src="img/photo-thiago-dusolo.png" data-i18n-attr="alt:idx.rm.profile_photo_alt" alt="Portrait of Maria Bruna Lopes">
+            </div>
+          </div>
+
+          <div class="rm-block reveal">
+            <h3 class="cv-h" data-i18n="idx.rm.competencies_h3">Core Competencies</h3>
+            <div class="cv-grid">
+              <div class="cv-card cv-card-rosa">
+                <h3 data-i18n="idx.rm.design_title">Design craft</h3>
+                <ul>
+                  <li data-i18n="idx.rm.design_li1"><strong>Visual design & craft</strong> — typography, color theory, visual hierarchy and layout, grounded in Gestalt and Semiotics.</li>
+                  <li data-i18n="idx.rm.design_li2"><strong>Brand systems & art direction</strong> — identity, packaging and campaign design across print and digital, from concept to scalable visual systems.</li>
+                  <li data-i18n="idx.rm.design_li3"><strong>Illustration & multi-medium art</strong> — custom illustration, large-scale murals and tattoo artistry, one concept across physical and digital surfaces.</li>
+                  <li data-i18n="idx.rm.design_li4"><strong>Creative direction & collaboration</strong> — translating briefs and artistic visions into cohesive concepts, leading projects end-to-end.</li>
+                </ul>
+              </div>
+              <div class="cv-card cv-card-lima">
+                <h3 data-i18n="idx.rm.ux_title">UX & code</h3>
+                <ul>
+                  <li data-i18n="idx.rm.ux_li1"><strong>UX/UI & research</strong> — user research, competitive benchmarking, wireframing and rapid prototyping.</li>
+                  <li data-i18n="idx.rm.ux_li2"><strong>Design-to-code</strong> — complex requirements into user journeys and flows, with functional prototyping and implementation-ready interfaces.</li>
+                  <li data-i18n="idx.rm.ux_li3"><strong>Processes, management & AI</strong> — agile methodologies, remote collaboration, project management and AI-powered workflows (research synthesis, automation, assisted coding).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="rm-block reveal">
+            <h3 class="cv-h" data-i18n="idx.rm.tools_h3">Tools & Digital Production</h3>
+            <div class="cv-tools">
+              <div><span class="cv-tag" data-i18n="tag.design_ui">[ design & ui ]</span><span data-i18n="idx.rm.tools_design_ui_value">Figma, Adobe Creative Suite (Photoshop, Illustrator, InDesign), Affinity Designer, Canva</span></div>
+              <div><span class="cv-tag" data-i18n="tag.code_ai">[ code & ai ]</span><span data-i18n="idx.rm.tools_code_ai_value">HTML, CSS, JavaScript, AI coding assistants and image generators</span></div>
+              <div><span class="cv-tag" data-i18n="tag.illustration_video">[ illustration & video ]</span><span data-i18n="idx.rm.tools_illustration_video_value">Procreate, After Effects, Premiere, CapCut</span></div>
+            </div>
+          </div>
+
+          <div class="rm-block reveal">
+            <h3 class="cv-h" data-i18n="idx.rm.experience_h3">Experience Highlights</h3>
+            <ol class="cv-timeline">
+              <li>
+                <span class="cv-when px">2024 — present</span>
+                <div data-i18n="idx.rm.exp1">
+                  <h4>UI/UX Designer <span class="cv-at">— Ultimatum · legal practice management software</span></h4>
+                  <p>Ultimatum builds law practice management software used across Brazil. I returned to the company, this time to lead the modernization of the platform's interface and experience — a strategic evolution centered on users' real daily routines. Here, UX research and market analysis inform every decision, and the prototypes I develop in HTML, CSS, Bootstrap and Chart.js bring design and development closer together, ensuring every proposal is viable for implementation. I integrate AI into my workflow to accelerate research and code — freeing my focus for what matters most: refining the final product.</p>
+                </div>
+              </li>
+              <li>
+                <span class="cv-when px">2022</span>
+                <div data-i18n="idx.rm.exp2">
+                  <h4>Graphic Designer <span class="cv-at">— Places · real estate marketing & design</span></h4>
+                  <p>Across social media, print, outdoor and catalogs, I kept the visual identity consistent for multiple clients as campaigns rolled out. In a field driven by tight deadlines, an agile, organized process let me hold both aesthetic quality and consistency, delivery after delivery.</p>
+                </div>
+              </li>
+              <li>
+                <span class="cv-when px">2015 — present</span>
+                <div data-i18n="idx.rm.exp3">
+                  <h4>Independent Visual Artist <span class="cv-at">— muralist & tattoo artist</span></h4>
+                  <p>Between large-scale murals and custom tattoos, I've kept a parallel career that sharpens how I read expectations and sense of spatial design. Turning an abstract concept into something permanent — on skin or on a wall — teaches you to listen closely and decide with precision. Those are instincts I carry into every digital project.</p>
+                </div>
+              </li>
+              <li>
+                <span class="cv-when px">2013 — 2020</span>
+                <div data-i18n="idx.rm.exp4">
+                  <h4>Creative Director <span class="cv-at">— Dupplamente Creative Projects</span></h4>
+                  <p>As a partner, I ran branding projects end-to-end, coordinating multidisciplinary teams assembled on demand — researchers, photographers, and print suppliers. That collaborative orchestration, paired with Design Thinking, produced deep visual identities aligned with each client's real needs. In all, I helped over 60 businesses launch or consolidate in the market.</p>
+                </div>
+              </li>
+              <li>
+                <span class="cv-when px">2009 — 2012</span>
+                <div data-i18n="idx.rm.exp5">
+                  <h4>UX/UI Designer <span class="cv-at">— Ultimatum · legal practice management software</span></h4>
+                  <p>This first stint at Ultimatum put me in charge of the UI, visual identity, and design system of two digital products built from the ground up. The work proved decisive for the company's growth and opened doors to key contracts with several regional chapters of the OAB (Brazil's Bar Association).</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="f-content">
+      <p class="f-kicker px" data-i18n="footer.tag">[ get in touch ]</p>
+      <div class="f-mail-row">
+        <div class="f-mail-col">
+          <a class="f-mail" href="mailto:hello@brunalopesdesign.com">hello@<br>brunalopes<br>design.com</a>
+          <a class="f-phone" href="tel:+5562981192575">+55 62 98119-2575</a>
+        </div>
+        <div class="f-links">
+          <a href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener" data-i18n="footer.behance">Behance</a>
+          <a href="https://www.linkedin.com/in/maria-bruna-lopes" target="_blank" rel="noopener" data-i18n="footer.linkedin">LinkedIn</a>
+          <a href="#resume" data-i18n="footer.resume">Résumé</a>
+        </div>
+      </div>
+      <p class="f-note" data-i18n="footer.note.index">Designed by Bruna Lopes <span class="px">*</span> 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js?v=1"></script>
+  <script src="js/main.js?v=2"></script>
+</body>
+</html>

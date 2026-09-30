@@ -1,0 +1,238 @@
+/* =========================================================
+   CASE PAGES — páginas individuais de projeto
+   herda os tokens de style.css (:root).
+   TEMA POR CASE: o case.js declara `tema` e js/case-render.js
+   injeta as CSS vars --case-bg (no body) e --c-* (no .case-page).
+   Tudo abaixo usa var(--c-*, <fallback do portfólio>) — então
+   um case SEM tema continua idêntico ao visual original.
+   ========================================================= */
+
+/* fundo temático da página inteira (imersão total) */
+.page-case { background: var(--case-bg, var(--cru)); }
+
+/* header/footer mantêm a identidade Bruna; só o header fica quase sólido
+   pra não embaçar quando o fundo do case é escuro */
+.page-case .site-header { background: color-mix(in srgb, var(--cru) 92%, transparent); }
+
+/* container raiz — .case-page (NÃO .case: a classe .case já existe no
+   style.css como card do collage e vira position:absolute acima de 1400px) */
+.case-page {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 7.5rem 1.5rem 4rem;
+  color: var(--c-ink, var(--tinta));
+}
+
+/* voltar */
+.case-back {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--c-title, var(--vinho));
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  padding: 0.3rem 0.6rem;
+  transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .13s ease;
+}
+.case-back:hover { transform: translate(-4px,-4px); box-shadow: 4px 4px 0 var(--c-accent, var(--lima)); }
+
+/* -------- hero -------- */
+.case-hero {
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--c-border, var(--tinta));
+  padding-bottom: 1.6rem;
+}
+.case-kicker {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--c-accent, var(--musgo));
+  margin-bottom: .6rem;
+}
+.case-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  line-height: .95;
+  text-transform: uppercase;
+  color: var(--c-title, var(--vinho));
+}
+.case-lede { font-size: 1.25rem; margin-top: 1rem; max-width: 60ch; }
+.case-meta {
+  list-style: none;
+  display: flex; flex-wrap: wrap;
+  gap: 1.4rem; margin-top: 1.4rem;
+}
+.case-meta li { font-size: .95rem; }
+.case-meta .px {
+  display: block;
+  text-transform: uppercase;
+  font-size: .7rem; letter-spacing: .06em;
+  color: var(--c-accent, var(--musgo));
+}
+
+.case-hero-img { margin: 0 0 3rem; }
+.case-hero-img img { width: 100%; border: 3px solid var(--c-border, var(--tinta)); }
+
+/* -------- bloco de texto -------- */
+.case-text { max-width: 65ch; margin: 0 auto 3rem; }
+.case-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  text-transform: uppercase;
+  color: var(--c-title, var(--tinta));
+  margin-bottom: .8rem;
+  line-height: 1;
+}
+.case-text p + p { margin-top: 1rem; }
+
+/* -------- imagem única -------- */
+.case-img { margin: 0 0 3rem; }
+.case-img img { width: 100%; border: 3px solid var(--c-border, var(--tinta)); }
+.case-img.is-full { margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; }
+.case-img.is-full img { border-left: none; border-right: none; }
+/* is-panel: card removido a pedido — SVG direto sobre o fundo, sem fundo/borda/padding */
+.case-img.is-panel img { border: none; }
+/* sem moldura (ex.: símbolo transparente flutuando no fundo) */
+.case-img.no-frame img { border: none; }
+/* imagem centrada com largura máxima (ex.: símbolo, marca) */
+.case-img.is-centered { margin-left: auto; margin-right: auto; }
+/* dropshadow (símbolo versão clara sobre fundo cinza claro — regra do manual) */
+.case-img.has-shadow img { filter: drop-shadow(0 16px 24px rgba(48,54,58,.30)); }
+
+figcaption {
+  font-family: var(--font-type);
+  font-size: .8rem; color: var(--c-accent, var(--musgo)); margin-top: .5rem;
+}
+.case-img.is-panel figcaption { padding: 0 .2rem; }
+
+/* -------- duo (2 lado a lado) -------- */
+.case-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 3rem; }
+.case-duo img { width: 100%; border: 3px solid var(--c-border, var(--tinta)); }
+
+/* -------- galeria (grid) -------- */
+.case-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem; }
+.case-gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 3px solid var(--c-border, var(--tinta)); }
+
+/* -------- linha de itens (logos cronológicos, camisetas) -------- */
+.case-row {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), 1fr);
+  gap: 1rem; margin: 0 0 3rem; align-items: stretch;
+}
+.case-row-item {
+  margin: 0;
+  background: var(--c-panel, #fff);
+  border: 3px solid var(--c-border, var(--tinta));
+  padding: 1.4rem;
+  display: flex; flex-direction: column;
+  gap: .7rem; align-items: center; justify-content: center;
+}
+.case-row-item.no-panel { background: transparent; border: none; padding: 0; }
+.case-row-item img { width: 100%; object-fit: contain; }
+.case-row-label {
+  font-family: var(--font-type); font-size: .75rem;
+  text-transform: uppercase; letter-spacing: .05em;
+  color: var(--c-accent, var(--musgo)); text-align: center; margin: 0;
+}
+@media (max-width: 680px) { .case-row { grid-template-columns: 1fr !important; } }
+
+/* -------- grafismos decorativos (linhas do U sangrando na borda) --------
+   Direto no body (position:relative). aspect-ratio força altura mesmo sem
+   tamanho intrínseco no SVG. z-index:-1 = atrás do conteúdo, acima do fundo.
+   Prata claro escurecido por filtro pra ler no tema claro. */
+.case-graf {
+  position: absolute;
+  width: 46vw; max-width: 720px;
+  aspect-ratio: 3545 / 1328; height: auto;
+  opacity: .85; filter: brightness(.68);
+  pointer-events: none; z-index: -1;
+}
+.case-graf--right { right: -9vw; }
+.case-graf--left  { left: -9vw; transform: scaleX(-1); }
+@media (max-width: 680px) { .case-graf { display: none; } }
+
+/* -------- paleta bento (mosaico com cantos arredondados + contorno aço) -------- */
+.case-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "branco branco pcl    pra"
+    "branco branco chumbo chumbo"
+    ".      aco    chumbo chumbo";
+  gap: 1rem;
+  aspect-ratio: 4 / 3;   /* cols e rows iguais → células quadradas */
+  max-width: 680px;
+  margin: 0 0 3rem;
+}
+.case-bento-cell {
+  border: 1px solid #91989c;          /* contorno aço */
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(40, 46, 50, .07);
+  display: flex; align-items: flex-end;
+  padding: .9rem 1rem;
+}
+.case-bento-hex {
+  font-family: var(--font-type);
+  font-size: .82rem; letter-spacing: .03em;
+  text-transform: uppercase;
+}
+@media (max-width: 680px) { .case-bento { max-width: 100%; } }
+
+/* -------- paleta de cores (renderizada com HEX reais, sem imagem) -------- */
+/* grid auto-fill: tracks de largura fixa não esticam a última fileira */
+.case-palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; margin: 0 0 3rem; }
+.case-swatch .chip {
+  height: 96px; border-radius: 2px;
+  border: 1px solid color-mix(in srgb, var(--c-ink, #000) 28%, transparent);
+}
+.case-swatch .nome {
+  font-family: var(--font-type); font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .04em;
+  margin-top: .45rem; color: var(--c-accent, var(--musgo));
+}
+.case-swatch .hexv { font-family: var(--font-type); font-size: .72rem; opacity: .7; }
+
+/* -------- vídeo (loop mudo) — você produz a partir das imagens -------- */
+.case-video { margin: 0 0 3rem; }
+.case-video video { width: 100%; border: 3px solid var(--c-border, var(--tinta)); background: var(--tinta); }
+
+/* -------- quote -------- */
+.case-quote {
+  margin: 0 0 3rem;
+  padding: 1.4rem 1.8rem;
+  border-left: 6px solid var(--c-accent, var(--lima));
+  background: var(--c-quote-bg, color-mix(in srgb, var(--rosa) 22%, transparent));
+}
+.case-quote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem,3.5vw,2.2rem);
+  line-height: 1.1; text-transform: uppercase;
+  color: var(--c-quote-ink, var(--vinho));
+}
+.case-quote cite {
+  display:block; margin-top:.6rem; font-style: normal;
+  font-family: var(--font-type); font-size:.85rem; color: var(--c-accent, var(--musgo));
+}
+
+/* -------- placeholder p/ imagem ainda não gerada -------- */
+.case-ph {
+  width: 100%; aspect-ratio: 16/10;
+  display: grid; place-items: center;
+  border: 3px dashed var(--c-accent, var(--musgo));
+  background: repeating-linear-gradient(45deg,
+    transparent, transparent 12px,
+    color-mix(in srgb, var(--c-accent, var(--musgo)) 14%, transparent) 12px,
+    color-mix(in srgb, var(--c-accent, var(--musgo)) 14%, transparent) 24px);
+  color: var(--c-accent, var(--musgo));
+  font-family: var(--font-type); font-size: .8rem; text-align: center; padding: 1rem;
+}
+.case-gallery .case-ph, .case-duo .case-ph { aspect-ratio: 1/1; }
+
+/* -------- reveal on scroll -------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* -------- responsivo -------- */
+@media (max-width: 680px) {
+  .case-duo, .case-gallery { grid-template-columns: 1fr; }
+  .case-page { padding-top: 6rem; }
+}
