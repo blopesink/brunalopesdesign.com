@@ -161,6 +161,28 @@ body::after {
   overflow: visible;
 }
 
+/* "under construction" notice — sits over the hero collage, never blocks it */
+.hero-construction {
+  position: absolute;
+  left: 30%;
+  top: 56%;
+  translate: -50% -50%;
+  z-index: 20;
+  pointer-events: none;
+}
+.hero-construction p {
+  font-family: var(--font-type);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  letter-spacing: 0.02em;
+  color: var(--vinho);
+  background: var(--lima);
+  padding: 0.6rem 1.6rem;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .hero-construction { left: 50%; top: 34%; }
+}
+
 /* translateX capped at the hero's own right padding (4vw), not a flat 15%:
    15% of hero-text's own width pushes it past the viewport at every desktop
    size, which would need overflow-x:hidden to contain — but mixing hidden
