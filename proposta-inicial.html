@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow">
+  <title>Proposta — Bruna Lopes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Besley:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --oliva: #2b331d; --cru: #ece7db; --rosa: #f1989b; --lima: #d9e021;
+      --vinho: #7f132b; --tinta: #16150f; --musgo: #5c6b3a;
+      --font-display: "Anton", sans-serif;
+      --font-body: "Besley", serif;
+      --font-type: "American Typewriter", "Courier New", serif;
+      --rail: 96px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--cru); color: var(--tinta); font-family: var(--font-body); font-size: 1rem; line-height: 1.55; }
+
+    /* ---- left rail with vertical text ---- */
+    .rail {
+      position: fixed; inset: 0 auto 0 0; width: var(--rail);
+      display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+      padding: 32px 0; border-right: 2px solid var(--tinta); background: var(--cru); z-index: 5;
+    }
+    .rail .logo { align-self: stretch; padding: 0 14px; text-decoration: none; color: var(--tinta); text-align: left; line-height: 1; }
+    .rail .logo b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 1.6rem; text-transform: uppercase; color: var(--vinho); }
+    .rail .vert { display: flex; gap: 22px; writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: 1.05rem; white-space: nowrap; }
+    .rail .vert span:nth-child(1) { color: var(--oliva); }
+    .rail .vert span:nth-child(2) { color: var(--vinho); }
+    .rail .rail-foot { display: flex; flex-direction: column; align-items: center; gap: 56px; }
+    .rail .areas { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: .9rem; letter-spacing: .03em; color: var(--tinta); white-space: nowrap; }
+
+    main { margin-left: var(--rail); padding: 48px 48px 0; max-width: 1560px; }
+
+    /* ---- title ---- */
+    .kicker { font-family: var(--font-type); font-size: .85rem; letter-spacing: .04em; color: var(--vinho); margin-bottom: 14px; }
+    h1 { display: inline; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.7rem, 3.8vw, 3rem); line-height: 1.22; color: var(--cru); background: var(--oliva); padding: .04em .22em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .lede { max-width: 64ch; margin-top: 26px; }
+
+    h2 { font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.1; color: var(--vinho); margin: 56px 0 22px; }
+
+    /* ---- service columns ---- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--tinta); border-top: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); }
+    .svc { background: var(--cru); padding: 30px 28px 26px; display: flex; flex-direction: column; }
+    .svc .tag { font-family: var(--font-type); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--musgo); }
+    .svc h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.8rem, 2.6vw, 2.5rem); line-height: 1.02; color: var(--vinho); margin: 6px 0 4px; }
+    .svc h4 { font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: 1.15rem; color: var(--oliva); margin: 22px 0 6px; }
+    .svc p, .svc li { font-size: .92rem; }
+    .svc ul { list-style: none; }
+    .svc li { padding-left: 1.1em; position: relative; margin-bottom: 5px; }
+    .svc li::before { content: "–"; position: absolute; left: 0; color: var(--vinho); }
+    .svc .nao li { color: #5b5648; }
+    .svc .nao li::before { content: "×"; }
+    .svc .meta { font-size: .92rem; }
+    .svc .meta + h4 { margin-top: 18px; }
+    .etapas { list-style: none; border-left: 2px solid var(--vinho); margin-left: 3px; }
+    .etapas li { padding: 0 0 10px 14px; font-size: .92rem; }
+    .etapas li::before { content: none; }
+    .etapas b { display: block; font-family: var(--font-type); font-weight: 400; font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--vinho); }
+    .price { margin-top: auto; padding-top: 28px; }
+    .price strong { display: inline-block; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.2; background: var(--lima); padding: .05em .3em; }
+    .price small { display: block; font-size: .8rem; margin-top: 8px; color: #3f3b2e; }
+    .price small + strong { margin-top: 22px; }
+    .pay { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(22,21,15,.25); font-family: var(--font-type); font-size: .78rem; }
+    .pay b { color: var(--vinho); text-transform: uppercase; letter-spacing: .05em; font-weight: 400; display: block; }
+    .hint { font-family: var(--font-type); font-size: .78rem; margin-top: 12px; color: #5b5648; }
+
+    /* ---- general conditions ---- */
+    .notas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--tinta); border-top: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); }
+    .nota { background: var(--cru); padding: 24px 28px; }
+    .nota h4 { font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: 1.25rem; color: var(--oliva); margin-bottom: 8px; }
+    .nota ul { list-style: none; font-size: .92rem; }
+    .nota li { padding-left: 1.1em; position: relative; margin-bottom: 6px; }
+    .nota li::before { content: "–"; position: absolute; left: 0; color: var(--vinho); }
+
+    footer { margin: 56px 0 0; padding: 28px 0 56px; border-top: 2px solid var(--tinta); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer p { font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: 1.15rem; color: var(--vinho); }
+    footer span { font-family: var(--font-type); font-size: .78rem; color: #5b5648; align-self: center; }
+
+    @media (max-width: 1250px) {
+      .grid, .notas { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 800px) {
+      :root { --rail: 0px; }
+      .rail { position: static; width: auto; flex-direction: row; align-items: center; padding: 14px 20px; border-right: 0; border-bottom: 2px solid var(--tinta); }
+      .rail .logo { align-self: auto; padding: 0; }
+      .rail .vert { writing-mode: horizontal-tb; transform: none; gap: 14px; font-size: .85rem; }
+      .rail .rail-foot { flex-direction: row-reverse; align-items: baseline; gap: 28px; }
+      .rail .areas { writing-mode: horizontal-tb; transform: none; font-size: .75rem; }
+      main { margin-left: 0; padding: 32px 20px 0; }
+      .grid, .notas { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="rail">
+    <a class="logo" href="#" aria-label="Bruna Lopes"><b>Bruna<br>Lopes</b></a>
+    <div class="rail-foot">
+      <div class="areas">design gráfico, ilustração e ui/ux</div>
+      <div class="vert"><span>Proposta inicial de serviços</span><span>2026</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p class="kicker">[ proposta inicial de serviços ]</p>
+      <h1>Marca, site, landing page,<br>motion e redes</h1>
+      <p class="lede">Bruna Lopes — design gráfico, ilustração e UI/UX. Serviços e valores para uma parceria inicial; tudo é ajustável conforme a necessidade do estúdio.</p>
+    </header>
+
+    <h2>Serviços e valores</h2>
+    <div class="grid" id="grade"></div>
+    <p class="hint">Valores em reais, sem impostos adicionais.</p>
+
+    <h2>Condições gerais</h2>
+    <div class="notas">
+      <div class="nota">
+        <h4>Prazos</h4>
+        <ul>
+          <li>O prazo conta a partir da aprovação da proposta e do pagamento inicial.</li>
+          <li>Textos, logos e imagens do cliente chegam até a data combinada; atrasos movem o prazo junto.</li>
+          <li>Códigos (GTM, formulário de CRM, link do ManyChat) até o 3º dia da landing page.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h4>Propostas e revisões</h4>
+        <ul>
+          <li>Logo: até 3 propostas. Cada uma pode ser aprovada, ajustada ou substituída por uma nova com novas diretrizes.</li>
+          <li>Ajustes que alterem mais de 50% da concepção original contam como nova proposta.</li>
+          <li>Esgotadas as propostas, o cliente escolhe uma das apresentadas ou negocia uma nova.</li>
+          <li>Landing Starter: 1 rodada de ajustes incluída.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h4>Terceiros</h4>
+        <ul>
+          <li>Domínio, hospedagem, CRM, impressão e ferramentas ficam no nome e no cartão do cliente.</li>
+          <li>A integração de tráfego pago (tags, conversões, fluxos) é feita pelo analista de tráfego.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>Obrigada!</p>
+      <span>Proposta confidencial — Bruna Lopes, 2026. Esta página não é pública.</span>
+    </footer>
+  </main>
+
+  <script>
+    /* Dados da proposta. Edite aqui: a página e, no futuro, o configurador leem desta lista. */
+    const SERVICOS = [
+      {
+        nome: "Só uma Logo",
+        descricao: "É “só uma logo”, mas feita com método e com possibilidade de aplicações refinadas no futuro. Desenvolvimento da marca gráfica (logotipo ou logotipo + símbolo) seguindo as boas práticas de design, a partir de briefing, com painel semântico de referências e desenvolvimento de até 3 propostas. O projeto termina com a logo aprovada, refinada e com todas as versões de aplicação finalizadas (vetor e imagem).",
+        indicacao: "Quem precisa de uma marca nova ou de um redesign e vai cuidar das aplicações por conta própria ou com outra agência.",
+        incluso: [
+          "Painel semântico (mapa mental de referências e características) para direcionar a primeira proposta",
+          "Desenvolvimento de até 3 propostas de logo",
+          "A cada proposta: aprovar, pedir ajustes (sem alterar mais de 50% da concepção) ou pedir nova proposta com novas diretrizes",
+          "Refinamento e finalização da proposta aprovada",
+          "Arquivos finais da logo em JPEG, PNG, SVG e EPS, em RGB e CMYK",
+          "Nota fiscal"
+        ],
+        naoIncluso: [
+          "Sistema de aplicação da identidade",
+          "Peças (papelaria, redes sociais, camisetas, adesivos etc.)",
+          "Manual de marca / branding book",
+          "Mockups",
+          "Serviços de terceiros (impressão, fotografia, banco de imagens, renders 3D)"
+        ],
+        etapas: [
+          ["1º dia útil", "Recebimento do briefing"],
+          ["2º dia útil", "Painel semântico para aprovação"],
+          ["4º dia útil", "Entrega da 1ª proposta. Se aprovada, segue para finalização; se reprovada, uma nova proposta é feita em 3 dias úteis com base no feedback do cliente"],
+          ["7º dia útil", "Entrega da 2ª proposta (se necessária). Aprovada, segue para finalização; reprovada, nova proposta em 3 dias úteis"],
+          ["10º dia útil", "Entrega da 3ª proposta (se necessária). Com três propostas em mãos, o cliente escolhe uma"],
+          ["+2 dias úteis", "Finalização e entrega nos formatos JPEG, PNG, SVG e EPS, em RGB e CMYK"]
+        ],
+        tecnologias: "Rascunhos à mão, Procreate, Illustrator",
+        prazo: "Mínimo de 6 dias úteis (1ª proposta aprovada: 4 de desenvolvimento + 2 de finalização)<br>Máximo de 12 dias úteis (3ª proposta: 10 de desenvolvimento + 2 de finalização)",
+        valor: "R$ 1.800",
+        valorNota: "",
+        pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
+      },
+      {
+        nome: "Diagramação de Branding Book",
+        descricao: "Diagramação do manual de marca a partir da logo, direcionamento estratégico e aplicações existentes: organização, hierarquia e acabamento gráfico do material que orienta o uso da identidade. Desenvolvimento de páginas interessantes e mockups.",
+        indicacao: "Marca que já tem logo e diretrizes definidas e precisa de um manual capaz de mostrar os conceitos envolvidos na construção da marca, com regras claras de aplicação para uso interno e de terceiros.",
+        incluso: [
+          "Projeto gráfico e diagramação do branding book",
+          "Organização do conteúdo fornecido pelo cliente",
+          "Versões de aplicação da logo, cores e tipografia, conforme o conteúdo recebido",
+          "Aplicação de peças já existentes em até 5 mockups para uso no branding book",
+          "Arquivo final em PDF para uso digital e impressão",
+          "Nota fiscal"
+        ],
+        naoIncluso: [
+          "Desenvolvimento de logo",
+          "Criação de novas peças de aplicação da identidade",
+          "Criação de texto e de direcionamento estratégico da marca (o conteúdo e a estratégia vêm do cliente)",
+          "Impressão e outros serviços de terceiros"
+        ],
+        etapas: [
+          ["1º dia útil", "Recebimento do conteúdo, da logo, das peças e dos assets e reunião de alinhamento"],
+          ["3º dia útil", "Projeto gráfico (capa e páginas-modelo) para aprovação"],
+          ["8º dia útil", "Entrega da diagramação completa em PDF final"]
+        ],
+        tecnologias: "Claude, Procreate, Illustrator, Nano Banana, Adobe InDesign",
+        prazo: "8 dias úteis após o recebimento do conteúdo e da logo",
+        valor: "R$ 1.500",
+        valorNota: "Para até 20 páginas. Páginas extras sob consulta.",
+        pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
+      },
+      {
+        nome: "Motion e vídeo institucional",
+        descricao: "Edição de vídeos institucionais com motion graphics e animações: títulos animados, infográficos em movimento, transições, aplicação da identidade visual e animação 2D feita à mão no iPad (quadro a quadro) para dar personalidade e diferenciação ao conteúdo.",
+        indicacao: "Marca que precisa de um vídeo institucional, de lançamento ou de apresentação com acabamento profissional e identidade própria, a partir de imagens e roteiro que já existem.",
+        incluso: [
+          "Edição e montagem do vídeo a partir do material bruto fornecido",
+          "Motion graphics: títulos, lower thirds, infográficos e transições",
+          "Animações 2D em After Effects e animação manual quadro a quadro no iPad",
+          "Aplicação da identidade visual (logo, cores, tipografia)",
+          "Correção de cor e ajuste de áudio básicos",
+          "2 rodadas de revisão",
+          "Exportação nos formatos pedidos (ex.: 16:9 e 9:16) e nota fiscal"
+        ],
+        naoIncluso: [
+          "Roteiro e criação de texto (conteúdo vem do cliente)",
+          "Captação de imagens, fotografia e locução",
+          "Trilha sonora licenciada e banco de imagens ou vídeos pagos",
+          "Ilustração 3D e animação 3D",
+          "Legendagem e versões em outros idiomas",
+          "Serviços de terceiros"
+        ],
+        etapas: [
+          ["1º dia útil", "Recebimento do briefing, do roteiro e do material bruto"],
+          ["3º dia útil", "Direção de arte e estilo da animação para aprovação"],
+          ["10º dia útil", "Entrega da primeira versão do vídeo"],
+          ["Após o feedback", "Até 2 rodadas de revisão e exportação final nos formatos pedidos"]
+        ],
+        tecnologias: "Adobe After Effects, Premiere Pro, Illustrator, Procreate (iPad)",
+        prazo: "Primeira versão em 10 dias úteis após receber o material",
+        valores: [
+          ["R$ 600", "Vinheta institucional de até 8 segundos com logo, tagline/slogan + assets + trilha de licenciamento gratuito e/ou áudio enviado pelo cliente."],
+          ["R$ 1.800", "Vídeo institucional com infográficos + edição de vídeo + motion, até 60 segundos + trilha de licenciamento gratuito e/ou áudio enviado pelo cliente. Valor sujeito a alteração conforme briefing."]
+        ],
+        pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
+      },
+      {
+        nome: "Conteúdo para redes sociais",
+        tag: "Pacote mensal ou avulso",
+        descricao: "Peças para redes sociais com acabamento de campanha: carrosséis, posts estáticos e vídeo posts com motion básico, com ilustração e/ou animação para chamar atenção e converter. Pensado para conteúdos de maior impacto e para campanhas de impulsionamento, em diálogo com a identidade visual da marca.",
+        indicacao: "Marca que já tem linha editorial e precisa de peças mais bem acabadas para lançamentos, promoções e anúncios pagos, em vez de posts de rotina.",
+        incluso: [
+          "Carrosséis (até 8 slides) com direção de arte e ilustração quando o conceito pedir",
+          "Posts estáticos com identidade visual aplicada",
+          "Vídeo posts com motion básico (textos e elementos animados)",
+          "Adaptação dos formatos: feed, stories e reels",
+          "Peças prontas para impulsionamento, com variações para teste quando combinado",
+          "1 rodada de ajustes por peça",
+          "Arquivos finais para postagem e nota fiscal"
+        ],
+        naoIncluso: [
+          "Criação de texto/legenda e planejamento editorial (conteúdo vem do cliente)",
+          "Gestão de redes, postagem e atendimento aos seguidores",
+          "Gestão de tráfego e crédito de impulsionamento (pago direto às plataformas)",
+          "Fotografia e captação de vídeo",
+          "Ilustração complexa, mascote e animação 3D",
+          "Vídeos mais elaborados (ver Motion e vídeo institucional)"
+        ],
+        etapas: [
+          ["1º dia útil", "Recebimento do briefing, da linha editorial e dos textos"],
+          ["Início do mês", "Calendário de entregas acordado"],
+          ["Conforme o calendário", "Entrega das peças, com 1 rodada de ajustes por peça"],
+          ["Fim do mês", "Arquivos finais para postagem"]
+        ],
+        tecnologias: "Figma, Illustrator, Photoshop, Procreate (iPad), After Effects",
+        prazo: "Pacote mensal: calendário combinado no início do mês · peça avulsa: 3 a 5 dias",
+        valor: "Pacote de 10 peças: R$ 1.900/mês",
+        valorNota: "Avulso: carrossel R$ 250 · post estático R$ 120 · vídeo post com motion R$ 280. Ilustração personalizada sob consulta.",
+        pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
+      },
+      {
+        nome: "Landing Page Starter",
+        descricao: "Uma página com banner/hero + 3 seções + formulário. Encantamento, autoridade de mercado e conversão por meio da diferenciação de outras landing pages. Endereçamento claro, direto e atrativo do serviço/produto, CTAs estratégicos ao longo da página, adequada ao acesso mobile, com interações ricas, animações, elementos reativos, ótima hierarquia de informação e condução do usuário até a tarefa desejada.",
+        indicacao: "Projeto que precisa ser lançado para captação imediata de leads, mas exige polimento na qualidade da entrega.",
+        incluso: [
+          "Grafismos/ilustrações de baixa complexidade para enriquecer a interface, ou uso inteligente dos assets já disponibilizados",
+          "Instalação no domínio e hospedagem adquiridos",
+          "Consultoria na aquisição de domínio e hospedagem",
+          "Instalação de códigos e ferramentas de venda e automação já adquiridas e pré-configuradas pelo cliente (Google Tag Manager, Google Analytics e Ads, formulário de CRM para captação de leads, botão/link do ManyChat)",
+          "Teste final",
+          "Nota fiscal"
+        ],
+        naoIncluso: [
+          "Painel administrativo",
+          "Desenvolvimento de logo, vetorização",
+          "Fotografia profissional",
+          "Ilustração complexa, mascote, infográficos, ilustração 3D",
+          "Captação ou edição de vídeo",
+          "Assinatura e configuração de ferramentas de venda, automação e tráfego",
+          "Aquisição de domínio, hospedagem ou qualquer serviço de terceiros"
+        ],
+        etapas: [
+          ["1º dia útil", "Recebimento do briefing e dos assets do cliente"],
+          ["3º dia útil", "Códigos e ferramentas do cliente já pré-configurados (GTM, CRM, ManyChat)"],
+          ["5º dia útil", "Layout da página para aprovação"],
+          ["8º dia útil", "Desenvolvimento e instalação dos códigos"],
+          ["10º dia útil", "Teste final, ajuste (1 rodada) e publicação"]
+        ],
+        tecnologias: "HTML, CSS, JavaScript",
+        prazo: "10 dias úteis",
+        valor: "R$ 2.800",
+        valorNota: "Com textos e imagens criados por mim. Se o cliente enviar o conteúdo: R$ 2.000.",
+        pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
+      },
+      {
+        nome: "Site institucional ou Landing Page com painel WordPress",
+        descricao: "Site responsivo ou landing page desenvolvido em WordPress, com painel administrativo para que o próprio cliente edite textos, imagens e conteúdos sem depender de desenvolvedor. Inclui treinamento em vídeo para uso do painel.",
+        indicacao: "Quem precisa manter o site atualizado por conta própria (novos conteúdos, produtos, galerias) e quer autonomia depois da entrega.",
+        incluso: [
+          "Até 2 propostas de layout",
+          "Layout responsivo (desktop, tablet e smartphone)",
+          "Landing page: hero + seções + formulário  |  Institucional: até 5 páginas (home, sobre, serviços, portfólio, contato)",
+          "Painel administrativo em WordPress, configurado para as áreas editáveis",
+          "Vídeo de treinamento para uso do painel",
+          "Instalação no domínio e hospedagem do cliente, com consultoria na contratação",
+          "Instalação de códigos e ferramentas de venda e automação já adquiridas e pré-configuradas pelo cliente (Google Tag Manager, Google Analytics e Ads, formulário de CRM para captação de leads, botão/link do ManyChat)",
+          "Teste final e nota fiscal"
+        ],
+        naoIncluso: [
+          "Desenvolvimento de logo",
+          "Criação de textos e fotografia profissional (conteúdo vem do cliente)",
+          "Página extra além do combinado (cobrada à parte)",
+          "Loja virtual / e-commerce",
+          "Assinatura e configuração de ferramentas de venda, automação e tráfego",
+          "Domínio, hospedagem, plugins pagos e outros serviços de terceiros"
+        ],
+        etapas: [
+          ["1º dia útil", "Recebimento do briefing e orientação sobre domínio e hospedagem"],
+          ["10º dia útil", "Apresentação do layout (até 2 propostas) para aprovação"],
+          ["Após a aprovação", "Desenvolvimento em WordPress, painel administrativo e inserção do conteúdo do cliente"],
+          ["Fim do desenvolvimento", "Testes, vídeo de treinamento do painel, publicação e entrega"]
+        ],
+        tecnologias: "WordPress, HTML, CSS, JavaScript, Figma",
+        prazo: "Layout em 10 dias úteis · site em 15 a 25 dias úteis após a aprovação do layout",
+        valor: "Landing: R$ 3.800<br>Institucional: R$ 4.500",
+        valorNota: "Institucional com até 5 páginas.",
+        pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
+      }
+    ];
+    const lista = a => a.map(i => `<li>${i}</li>`).join("");
+    document.getElementById("grade").innerHTML = SERVICOS.map(s => `
+      <article class="svc">
+        ${s.tag ? `<span class="tag">${s.tag}</span>` : ""}
+        <h3>${s.nome}</h3>
+        <h4>Descrição</h4><p>${s.descricao}</p>
+        <h4>Indicação</h4><p>${s.indicacao}</p>
+        <h4>Incluso</h4><ul>${lista(s.incluso)}</ul>
+        <h4>Não incluso</h4><ul class="nao">${lista(s.naoIncluso)}</ul>
+        <h4>Etapas de projeto</h4><ol class="etapas">${s.etapas.map(([q, t]) => `<li><b>${q}</b>${t}</li>`).join("")}</ol>
+        <h4>Tecnologias</h4><p class="meta">${s.tecnologias}</p>
+        <h4>Prazo</h4><p class="meta">${s.prazo}</p>
+        <div class="price">${(s.valores || [[s.valor, s.valorNota]]).map(([v, n]) => `<strong>${v}</strong>${n ? `<small>${n}</small>` : ""}`).join("")}</div>
+        <div class="pay"><b>Condição de pagamento</b>${s.pagamento}</div>
+      </article>`).join("");
+  </script>
+</body>
+</html>
