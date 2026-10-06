@@ -162,6 +162,14 @@ if (resumeToggle && resumeMore) {
       resumeMore.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
     }
   });
+
+  // index.html#curriculo arrives with the résumé already open (link from the proposal page)
+  if (location.hash === "#curriculo") {
+    resumeToggle.click();
+    // scroll after load (images/fonts shift layout) and win over scroll restoration
+    history.scrollRestoration = "manual";
+    addEventListener("load", () => document.getElementById("resume").scrollIntoView());
+  }
 }
 
 /* ---- reveal on scroll ---- */

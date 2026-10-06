@@ -260,6 +260,11 @@ const translations = {
 
 const LANG_KEY = "site-lang";
 
+// ?lang=pt / ?lang=en in the URL (e.g. links from the Portuguese proposal page)
+// picks the language and persists it like the toggle does
+const urlLang = new URLSearchParams(location.search).get("lang");
+if (urlLang === "pt" || urlLang === "en") localStorage.setItem(LANG_KEY, urlLang);
+
 function getLang() {
   return localStorage.getItem(LANG_KEY) === "pt" ? "pt" : "en";
 }
