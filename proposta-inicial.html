@@ -78,12 +78,25 @@
     .nota li { padding-left: 1.1em; position: relative; margin-bottom: 6px; }
     .nota li::before { content: "–"; position: absolute; left: 0; color: var(--vinho); }
 
+    .lede-sec { margin: -8px 0 22px; }
+    .licencas .nota { display: flex; flex-direction: column; }
+    .nota .tag { font-family: var(--font-type); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--musgo); }
+    .lic-price { margin-top: auto; padding-top: 18px; }
+    .lic-price strong { display: inline-block; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.4rem, 2vw, 1.8rem); line-height: 1.2; background: var(--lima); padding: .05em .3em; }
+    .lic-price small { display: block; font-size: .8rem; margin-top: 8px; color: #3f3b2e; }
+    .nota .etapas { font-size: .92rem; border-left: 0; margin-left: 0; }
+    .nota .etapas li { display: flex; align-items: baseline; gap: 10px; padding-left: 0; }
+    .nota .etapas b { flex: none; min-width: 1.6em; text-align: center; font-family: var(--font-display); font-size: 1rem; letter-spacing: 0; color: var(--tinta); background: var(--lima); padding: .05em .3em; }
+    .nota .etapas li::before { content: none; }
+    .nota a, footer a { color: var(--vinho); overflow-wrap: anywhere; }
+    .nota .etapas span { min-width: 0; }
     footer { margin: 56px 0 0; padding: 28px 0 56px; border-top: 2px solid var(--tinta); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     footer p { font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: 1.15rem; color: var(--vinho); }
     footer span { font-family: var(--font-type); font-size: .78rem; color: #5b5648; align-self: center; }
 
     @media (max-width: 1250px) {
       .grid, .notas { grid-template-columns: repeat(2, 1fr); }
+      .grid > :last-child:nth-child(odd), .notas > :last-child:nth-child(odd) { grid-column: 1 / -1; }
     }
     @media (max-width: 800px) {
       :root { --rail: 0px; }
@@ -92,6 +105,9 @@
       .rail .vert { writing-mode: horizontal-tb; transform: none; gap: 14px; font-size: .85rem; }
       .rail .rail-foot { flex-direction: row-reverse; align-items: baseline; gap: 28px; }
       .rail .areas { writing-mode: horizontal-tb; transform: none; font-size: .75rem; }
+      .rail { gap: 16px; }
+      .rail .rail-foot { flex-wrap: wrap; justify-content: flex-end; gap: 4px 20px; min-width: 0; }
+      .rail .areas, .rail .vert { white-space: normal; }
       main { margin-left: 0; padding: 32px 20px 0; }
       .grid, .notas { grid-template-columns: 1fr; }
     }
@@ -110,19 +126,114 @@
     <header>
       <p class="kicker">[ proposta inicial de serviços ]</p>
       <h1>Marca, site, landing page,<br>motion e redes</h1>
-      <p class="lede">Bruna Lopes — design gráfico, ilustração e UI/UX. Serviços e valores para uma parceria inicial; tudo é ajustável conforme a necessidade do estúdio.</p>
+      <p class="lede">Bruna Lopes — design gráfico, ilustração e UI/UX. Serviços e valores para uma parceria inicial; tudo é ajustável conforme a necessidade da agência.</p>
     </header>
 
     <h2>Serviços e valores</h2>
     <div class="grid" id="grade"></div>
-    <p class="hint">Valores em reais, sem impostos adicionais.</p>
+    <p class="hint">Valores em reais, com nota fiscal inclusa e sem acréscimo de impostos.</p>
+
+    <h2>Arquivos editáveis e licenças</h2>
+    <p class="lede lede-sec">Todo serviço entrega os arquivos finais prontos para uso. Os arquivos abertos (editáveis) podem ser adquiridos à parte, no fechamento ou em até 12 meses após a entrega, com a licença que fizer mais sentido para o projeto.</p>
+    <div class="notas licencas">
+      <div class="nota">
+        <span class="tag">Incluso em todo serviço</span>
+        <h4>Arquivos finais</h4>
+        <ul>
+          <li>PNG, JPG, MP4 ou PDF, conforme o serviço.</li>
+          <li>Cessão dos direitos de uso, sem prazo, para o projeto contratado, inclusive para o cliente final da agência.</li>
+          <li>Logo: vetores (SVG e EPS) e cessão dos direitos patrimoniais já inclusos.</li>
+        </ul>
+        <p class="lic-price"><strong>Incluso</strong></p>
+      </div>
+      <div class="nota">
+        <span class="tag">Licença vitalícia · mesmo projeto</span>
+        <h4>Editáveis para o projeto</h4>
+        <ul>
+          <li>Arquivos abertos (Figma, Illustrator, Photoshop, InDesign ou After Effects).</li>
+          <li>Uso vitalício para editar e gerar novas versões dentro do mesmo projeto, marca ou campanha: trocar textos, datas, preços e fotos, criar desdobramentos.</li>
+          <li>Não vale para outros clientes ou marcas.</li>
+        </ul>
+        <p class="lic-price"><strong>+ 40%</strong><small>sobre o valor do serviço. Ex.: carrossel avulso + R$ 152 · pacote social + R$ 1.040/mês · vinheta + R$ 240.</small></p>
+      </div>
+      <div class="nota">
+        <span class="tag">Licença vitalícia · uso comercial</span>
+        <h4>Editáveis para uso comercial</h4>
+        <ul>
+          <li>Os mesmos arquivos abertos, com uso comercial livre e vitalício.</li>
+          <li>Reuso em outros projetos, marcas e clientes da agência, e como template interno.</li>
+          <li>Não inclui revender os arquivos como produto (ex.: template à venda).</li>
+        </ul>
+        <p class="lic-price"><strong>+ 100%</strong><small>sobre o valor do serviço. Ex.: carrossel avulso + R$ 380 · pacote social + R$ 2.600/mês · vinheta + R$ 600.</small></p>
+      </div>
+    </div>
+    <p class="hint">Fontes, bancos de imagem e plugins pagos usados nos arquivos são licenciados à parte, no nome do cliente. Sites e landing pages: o código fica no servidor do cliente; reuso do código como template para outros projetos sob consulta. A autoria da peça continua sendo da designer.</p>
+
+    <h2>Parceria com agências</h2>
+    <div class="notas">
+      <div class="nota">
+        <h4>White label e confidencialidade</h4>
+        <ul>
+          <li>Trabalho sob a marca da agência, sem contato direto com o cliente final fora das reuniões previstas no serviço, salvo se combinado.</li>
+          <li>Publicação no portfólio só com autorização da agência e depois do lançamento.</li>
+          <li>Briefings, dados e materiais do cliente ficam em sigilo.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h4>Faturamento</h4>
+        <ul>
+          <li>Primeiro job: 50% para iniciar e 50% na entrega.</li>
+          <li>Parceiros recorrentes: faturamento mensal, com nota fiscal e pagamento via PIX ou boleto em até 15 dias.</li>
+          <li>Pacote mensal: nota fiscal emitida no início do mês.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h4>Comunicação</h4>
+        <ul>
+          <li><b>WhatsApp é o canal principal</b>: <a href="https://wa.me/5562981192575">(62) 98119-2575</a>. Estou sempre atenta às mensagens.</li>
+          <li>Resposta em até 2 horas úteis, de segunda a sexta, das 8h às 18h.</li>
+          <li>Reuniões e alinhamentos por Google Meet, marcados direto pelo WhatsApp.</li>
+          <li>Um grupo de WhatsApp por projeto, com um ponto focal na agência; e-mail para envio de arquivos e aprovações formais.</li>
+          <li>Feedback consolidado em uma única mensagem por rodada de ajustes.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h4>Pausas, cancelamento e validade</h4>
+        <ul>
+          <li>Projeto sem retorno da agência por 10 dias úteis é encerrado e o saldo é faturado; a retomada ganha nova data.</li>
+          <li>Cancelamento depois do início: é faturado o que já foi produzido, com mínimo de 50% do valor.</li>
+          <li>Valores válidos até 31 de dezembro de 2026; pacotes e serviços recorrentes podem ser revistos a cada 6 meses, com aviso de 30 dias.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h4>Alinhamentos e visitas</h4>
+        <ul>
+          <li>Alinhamentos online com a agência: inclusos, sem limite, durante os projetos em andamento.</li>
+          <li>Visitas presenciais de meio período (até 4 h), com projetos em andamento, para alinhamento, co-criação ou gravação do processo criativo e manual (rascunhos, ilustração à mão e no iPad).</li>
+          <li><b>Visita avulsa: R$ 300</b></li>
+          <li><b>Pacote mensal:</b><br>· 4 visitas (1 por semana): R$ 1.080 (10% off)<br>· 8 visitas (2 por semana): R$ 2.040 (15% off)<br>· 12 visitas (3 por semana): R$ 2.880 (20% off)<br>Faturado no início do mês. Visitas não usadas não acumulam, porque a agenda fica reservada.</li>
+          <li>Deslocamento incluso na mesma cidade; fora dela, reembolsado. Agendamento com 2 dias úteis de antecedência.</li>
+          <li>A visita é tempo de presença; a produção das peças segue os prazos e valores da tabela.</li>
+          <li>As gravações do processo podem ser usadas pela agência e pelo cliente na divulgação do projeto, com crédito à designer.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <h4>Como contratar</h4>
+        <ol class="etapas">
+          <li><b>1</b><span>Chame no WhatsApp <a href="https://wa.me/5562981192575">(62) 98119-2575</a> ou envie o briefing para <a href="mailto:hello@brunalopesdesign.com">hello@brunalopesdesign.com</a></span></li>
+          <li><b>2</b><span>Se precisar, uma conversa rápida por Google Meet para entender o projeto</span></li>
+          <li><b>3</b><span>Orçamento e cronograma em até 1 dia útil</span></li>
+          <li><b>4</b><span>Aprovação por WhatsApp ou e-mail e início em até 2 dias úteis</span></li>
+        </ol>
+      </div>
+    </div>
 
     <h2>Condições gerais</h2>
     <div class="notas">
       <div class="nota">
         <h4>Prazos</h4>
         <ul>
-          <li>O prazo conta a partir da aprovação da proposta e do pagamento inicial.</li>
+          <li>O prazo conta a partir da aprovação do orçamento (e do pagamento inicial, no primeiro job).</li>
           <li>Textos, logos e imagens do cliente chegam até a data combinada; atrasos movem o prazo junto.</li>
           <li>Códigos (GTM, formulário de CRM, link do ManyChat) até o 3º dia da landing page.</li>
         </ul>
@@ -146,7 +257,7 @@
     </div>
 
     <footer>
-      <p>Obrigada!</p>
+      <p>Obrigada! Vamos conversar no WhatsApp: <a href="https://wa.me/5562981192575">(62) 98119-2575</a> · <a href="mailto:hello@brunalopesdesign.com">hello@brunalopesdesign.com</a></p>
       <span>Proposta confidencial — Bruna Lopes, 2026. Esta página não é pública.</span>
     </footer>
   </main>
@@ -164,6 +275,7 @@
           "A cada proposta: aprovar, pedir ajustes (sem alterar mais de 50% da concepção) ou pedir nova proposta com novas diretrizes",
           "Refinamento e finalização da proposta aprovada",
           "Arquivos finais da logo em JPEG, PNG, SVG e EPS, em RGB e CMYK",
+          "1 reunião online com o cliente final (até 1 h), com a agência presente, para briefing ou apresentação",
           "Nota fiscal"
         ],
         naoIncluso: [
@@ -188,101 +300,146 @@
         pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
       },
       {
-        nome: "Diagramação de Branding Book",
-        descricao: "Diagramação do manual de marca a partir da logo, direcionamento estratégico e aplicações existentes: organização, hierarquia e acabamento gráfico do material que orienta o uso da identidade. Desenvolvimento de páginas interessantes e mockups.",
-        indicacao: "Marca que já tem logo e diretrizes definidas e precisa de um manual capaz de mostrar os conceitos envolvidos na construção da marca, com regras claras de aplicação para uso interno e de terceiros.",
+        nome: "Branding Book e aplicações da marca",
+        descricao: "Diagramação do manual de marca a partir da logo e do direcionamento estratégico, com desenvolvimento das peças de aplicação da logo e dos mockups que mostram a marca em uso. Organização, hierarquia e acabamento gráfico do material que orienta o uso da identidade, com páginas interessantes e aplicações reais da marca.",
+        indicacao: "Marca que já tem logo e diretrizes definidas e precisa de um manual que explique os conceitos da marca e mostre a identidade aplicada em peças reais, com regras claras de uso para a equipe interna e para terceiros.",
         incluso: [
           "Projeto gráfico e diagramação do branding book",
           "Organização do conteúdo fornecido pelo cliente",
           "Versões de aplicação da logo, cores e tipografia, conforme o conteúdo recebido",
-          "Aplicação de peças já existentes em até 5 mockups para uso no branding book",
-          "Arquivo final em PDF para uso digital e impressão",
+          "Desenvolvimento de peças de aplicação da logo: 3 ou 8, conforme o pacote (ex.: papelaria, sinalização, redes sociais, uniforme, embalagem)",
+          "Criação de mockups com as peças aplicadas: 3 ou 8, conforme o pacote, para o branding book e para a divulgação da marca",
+          "Arquivos das peças (vetor e imagem) e dos mockups (imagem em alta resolução)",
+          "Arquivo final do branding book em PDF para uso digital e impressão",
           "Nota fiscal"
         ],
         naoIncluso: [
           "Desenvolvimento de logo",
-          "Criação de novas peças de aplicação da identidade",
+          "Peças de aplicação e mockups além dos incluídos no pacote (sob consulta)",
           "Criação de texto e de direcionamento estratégico da marca (o conteúdo e a estratégia vêm do cliente)",
-          "Impressão e outros serviços de terceiros"
+          "Fotografia e banco de imagens pagos",
+          "Produção e impressão das peças e outros serviços de terceiros"
         ],
         etapas: [
-          ["1º dia útil", "Recebimento do conteúdo, da logo, das peças e dos assets e reunião de alinhamento"],
+          ["1º dia útil", "Recebimento do conteúdo, da logo e dos assets, reunião de alinhamento e definição das peças de aplicação"],
           ["3º dia útil", "Projeto gráfico (capa e páginas-modelo) para aprovação"],
-          ["8º dia útil", "Entrega da diagramação completa em PDF final"]
+          ["5º dia útil", "Peças de aplicação e mockups para aprovação"],
+          ["10º dia útil", "Entrega da diagramação completa em PDF final, das peças e dos mockups"]
         ],
-        tecnologias: "Claude, Procreate, Illustrator, Nano Banana, Adobe InDesign",
-        prazo: "8 dias úteis após o recebimento do conteúdo e da logo",
-        valor: "R$ 1.500",
-        valorNota: "Para até 20 páginas. Páginas extras sob consulta.",
+        tecnologias: "Claude, Procreate, Illustrator, Photoshop, Nano Banana, Adobe InDesign",
+        prazo: "10 dias úteis após o recebimento do conteúdo e da logo",
+        valores: [
+          ["R$ 1.200", "Branding book de até 20 páginas, com 3 peças de aplicação e 3 mockups."],
+          ["R$ 1.800", "Branding book de até 80 páginas, com 8 peças de aplicação e 8 mockups. Páginas e peças extras sob consulta."]
+        ],
         pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
       },
       {
-        nome: "Motion e vídeo institucional",
-        descricao: "Edição de vídeos institucionais com motion graphics e animações: títulos animados, infográficos em movimento, transições, aplicação da identidade visual e animação 2D feita à mão no iPad (quadro a quadro) para dar personalidade e diferenciação ao conteúdo.",
+        nome: "Vinheta institucional (logo motion)",
+        descricao: "Animação da logo em uma vinheta curta, de até 8 segundos, para abrir ou fechar vídeos, apresentações, reels e outros conteúdos da marca. A logo, a tagline/slogan e os elementos da identidade ganham movimento, acompanhados de trilha e efeitos sonoros.",
+        indicacao: "Marca que quer dar movimento à identidade e ter uma assinatura animada para usar em vídeos, redes sociais, apresentações e eventos.",
+        incluso: [
+          "Animação da logo e da tagline/slogan em vinheta de até 8 segundos",
+          "Uso dos assets da identidade visual (cores, tipografia e elementos gráficos)",
+          "Trilha sonora e efeitos sonoros de bibliotecas royalty-free, licenciados para uso comercial sem custo adicional, ou áudio enviado pelo cliente",
+          "2 rodadas de revisão",
+          "Exportação nos formatos pedidos (ex.: 16:9 e 9:16) e nota fiscal"
+        ],
+        naoIncluso: [
+          "Desenvolvimento ou redesenho da logo",
+          "Vinheta com mais de 8 segundos ou mais de uma versão de animação",
+          "Narração, trilha sonora paga ou exclusiva",
+          "Animação 2D quadro a quadro e animação 3D",
+          "Serviços de terceiros"
+        ],
+        etapas: [
+          ["1º dia útil", "Recebimento da logo, dos assets e do briefing"],
+          ["2º dia útil", "Referências e direção da animação para aprovação"],
+          ["5º dia útil", "Entrega da primeira versão da vinheta"],
+          ["Após o feedback", "Até 2 rodadas de revisão e exportação final nos formatos pedidos"]
+        ],
+        tecnologias: "Adobe After Effects, Illustrator, Premiere Pro",
+        prazo: "Primeira versão em 5 dias úteis após receber a logo e os assets",
+        valor: "R$ 600",
+        valorNota: "Vinheta institucional de até 8 segundos com logo, tagline/slogan + assets + trilha e efeitos sonoros de licenciamento gratuito e/ou áudio enviado pelo cliente.",
+        pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
+      },
+      {
+        nome: "Vídeo Motion Institucional",
+        descricao: "Edição de vídeos institucionais com motion graphics e animações: títulos animados, infográficos em movimento, transições, aplicação da identidade visual e, como adicional, animação 2D feita à mão no iPad (quadro a quadro) para dar personalidade e diferenciação ao conteúdo.",
         indicacao: "Marca que precisa de um vídeo institucional, de lançamento ou de apresentação com acabamento profissional e identidade própria, a partir de imagens e roteiro que já existem.",
         incluso: [
           "Edição e montagem do vídeo a partir do material bruto fornecido",
-          "Motion graphics: títulos, lower thirds, infográficos e transições",
-          "Animações 2D em After Effects e animação manual quadro a quadro no iPad",
+          "Até 8 cenas (cerca de 7 a 8 segundos cada), em um estilo principal de animação definido no briefing",
+          "Motion graphics em After Effects: títulos animados, lower thirds e transições",
+          "Até 3 infográficos animados simples (números, gráficos ou ícones)",
           "Aplicação da identidade visual (logo, cores, tipografia)",
-          "Correção de cor e ajuste de áudio básicos",
+          "Animatic simples: prévia com a ordem, o tempo das cenas e a trilha, para aprovação antes da animação final",
+          "Trilha sonora e efeitos sonoros de bibliotecas royalty-free, licenciados para uso comercial sem custo adicional",
+          "Legendagem automática por IA, no idioma original do vídeo",
           "2 rodadas de revisão",
           "Exportação nos formatos pedidos (ex.: 16:9 e 9:16) e nota fiscal"
         ],
         naoIncluso: [
           "Roteiro e criação de texto (conteúdo vem do cliente)",
-          "Captação de imagens, fotografia e locução",
-          "Trilha sonora licenciada e banco de imagens ou vídeos pagos",
+          "Captação de imagens e fotografia",
+          "Narração humana (a narração por IA está disponível como adicional), trilha sonora paga ou exclusiva e banco de imagens ou vídeos pagos",
+          "Animação 2D quadro a quadro no Procreate (adicional: + R$ 600 a cada 10 segundos)",
+          "Cenas e infográficos além dos incluídos, e mais de um estilo de animação no mesmo vídeo",
+          "Alterações de roteiro ou da ordem das cenas depois da aprovação do animatic",
           "Ilustração 3D e animação 3D",
-          "Legendagem e versões em outros idiomas",
+          "Legendagem manual ou com revisão profissional, tradução e versões em outros idiomas",
           "Serviços de terceiros"
         ],
         etapas: [
-          ["1º dia útil", "Recebimento do briefing, do roteiro e do material bruto"],
-          ["3º dia útil", "Direção de arte e estilo da animação para aprovação"],
+          ["1º dia útil", "Recebimento do briefing, do roteiro e do material bruto e definição do estilo de animação"],
+          ["3º dia útil", "Direção de arte e animatic simples (prévia com a ordem e o tempo das cenas) para aprovação"],
           ["10º dia útil", "Entrega da primeira versão do vídeo"],
           ["Após o feedback", "Até 2 rodadas de revisão e exportação final nos formatos pedidos"]
         ],
-        tecnologias: "Adobe After Effects, Premiere Pro, Illustrator, Procreate (iPad)",
+        tecnologias: "Adobe After Effects, Premiere Pro, Illustrator, Procreate (iPad), ElevenLabs",
         prazo: "Primeira versão em 10 dias úteis após receber o material",
         valores: [
-          ["R$ 600", "Vinheta institucional de até 8 segundos com logo, tagline/slogan + assets + trilha de licenciamento gratuito e/ou áudio enviado pelo cliente."],
-          ["R$ 1.800", "Vídeo institucional com infográficos + edição de vídeo + motion, até 60 segundos + trilha de licenciamento gratuito e/ou áudio enviado pelo cliente. Valor sujeito a alteração conforme briefing."]
+          ["+ R$ 150", "Narração produzida no ElevenLabs."],
+          ["+ R$ 600", "A cada 10 segundos de animação 2D quadro a quadro, feita à mão no Procreate."],
+          ["R$ 2.400", "Vídeo institucional com infográficos + edição de vídeo + motion, até 60 segundos e até 8 cenas + trilha e efeitos sonoros de licenciamento gratuito e/ou áudio enviado pelo cliente. Valor sujeito a alteração conforme briefing."]
         ],
         pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
       },
       {
         nome: "Conteúdo para redes sociais",
         tag: "Pacote mensal ou avulso",
-        descricao: "Peças para redes sociais com acabamento de campanha: carrosséis, posts estáticos e vídeo posts com motion básico, com ilustração e/ou animação para chamar atenção e converter. Pensado para conteúdos de maior impacto e para campanhas de impulsionamento, em diálogo com a identidade visual da marca.",
+        descricao: "Peças para redes sociais com acabamento de campanha: carrosséis, posts estáticos e vídeo posts com motion básico, com ilustrações simples para chamar atenção e converter. Pensado para conteúdos de maior impacto e para campanhas de impulsionamento, em diálogo com a identidade visual da marca.",
         indicacao: "Marca que já tem linha editorial e precisa de peças mais bem acabadas para lançamentos, promoções e anúncios pagos, em vez de posts de rotina.",
         incluso: [
-          "Carrosséis (até 8 slides) com direção de arte e ilustração quando o conceito pedir",
+          "Carrosséis (até 15 slides) com direção de arte e, quando o conceito pedir, ilustrações de baixa complexidade (ícones, grafismos e elementos simples)",
           "Posts estáticos com identidade visual aplicada",
           "Vídeo posts com motion básico (textos e elementos animados)",
-          "Adaptação dos formatos: feed, stories e reels",
-          "Peças prontas para impulsionamento, com variações para teste quando combinado",
-          "1 rodada de ajustes por peça",
-          "Arquivos finais para postagem e nota fiscal"
+          "Adaptação da mesma peça para feed, stories e reels (não conta como peça nova)",
+          "Peças prontas para impulsionamento; variações para teste A/B contam como peça adicional",
+          "1 rodada de ajustes por peça, devolvida em até 1 dia útil após o feedback",
+          "Arquivos finais para postagem, liberados assim que cada peça é aprovada, e nota fiscal"
         ],
         naoIncluso: [
           "Criação de texto/legenda e planejamento editorial (conteúdo vem do cliente)",
           "Gestão de redes, postagem e atendimento aos seguidores",
           "Gestão de tráfego e crédito de impulsionamento (pago direto às plataformas)",
           "Fotografia e captação de vídeo",
-          "Ilustração complexa, mascote e animação 3D",
-          "Vídeos mais elaborados (ver Motion e vídeo institucional)"
+          "Ilustração detalhada ou com cenário, personagens, mascote e animação 3D",
+          "Vídeos mais elaborados (ver Vídeo Motion Institucional)"
         ],
         etapas: [
           ["1º dia útil", "Recebimento do briefing, da linha editorial e dos textos"],
-          ["Início do mês", "Calendário de entregas acordado"],
-          ["Conforme o calendário", "Entrega das peças, com 1 rodada de ajustes por peça"],
-          ["Fim do mês", "Arquivos finais para postagem"]
+          ["3º dia útil", "Key visual / templates do mês para aprovação"],
+          ["5º dia útil", "Lote 1 (3 a 4 peças)"],
+          ["8º dia útil", "Lote 2 (3 a 4 peças)"],
+          ["10º dia útil", "Lote 3 (peças restantes)"],
+          ["A cada aprovação", "Ajustes em até 1 dia útil e arquivo final liberado para postagem"]
         ],
-        tecnologias: "Figma, Illustrator, Photoshop, Procreate (iPad), After Effects",
-        prazo: "Pacote mensal: calendário combinado no início do mês · peça avulsa: 3 a 5 dias",
-        valor: "Pacote de 10 peças: R$ 1.900/mês",
-        valorNota: "Avulso: carrossel R$ 250 · post estático R$ 120 · vídeo post com motion R$ 280. Ilustração personalizada sob consulta.",
+        tecnologias: "Figma, Illustrator, Photoshop, Procreate (iPad), After Effects, CapCut",
+        prazo: "Pacote mensal: 10 dias úteis, em 3 lotes · avulso: estático em 1 dia útil, carrossel em 2 a 3, vídeo em 3 · urgência em 24 h: +50%",
+        valor: "Pacote mensal: 36 créditos por R$ 2.600",
+        valorNota: "Cada peça consome créditos:<br>· Post estático = 1<br>· Carrossel = 5<br>· Vídeo post = 6<br>· Carrossel com vídeos = 7<br><br>A agência monta o mix do mês, por exemplo 4 carrosséis + 2 vídeos + 4 estáticos, ou 7 carrosséis + 1 estático.<br>Entre 5% e 10% abaixo do avulso, conforme o mix.<br>Créditos não usados passam para o mês seguinte (validade de 1 mês).<br><br><b>Avulso:</b><br>· Carrossel de até 15 slides: R$ 380<br>· Carrossel com vídeos curtos de até 10 slides, com até 3 vídeos de até 5 segundos cada: R$ 550<br>· Post estático: R$ 80<br>· Vídeo post CapCut de até 15 segundos: R$ 480<br>· Ilustração complexa personalizada: sob consulta",
         pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
       },
       {
@@ -294,12 +451,14 @@
           "Instalação no domínio e hospedagem adquiridos",
           "Consultoria na aquisição de domínio e hospedagem",
           "Instalação de códigos e ferramentas de venda e automação já adquiridas e pré-configuradas pelo cliente (Google Tag Manager, Google Analytics e Ads, formulário de CRM para captação de leads, botão/link do ManyChat)",
+          "1 reunião online com o cliente final (até 1 h), com a agência presente, para briefing ou apresentação",
           "Teste final",
           "Nota fiscal"
         ],
         naoIncluso: [
           "Painel administrativo",
           "Desenvolvimento de logo, vetorização",
+          "Criação de textos e imagens (sob consulta)",
           "Fotografia profissional",
           "Ilustração complexa, mascote, infográficos, ilustração 3D",
           "Captação ou edição de vídeo",
@@ -308,15 +467,15 @@
         ],
         etapas: [
           ["1º dia útil", "Recebimento do briefing e dos assets do cliente"],
-          ["3º dia útil", "Códigos e ferramentas do cliente já pré-configurados (GTM, CRM, ManyChat)"],
+          ["3º dia útil (cliente)", "Códigos e ferramentas do cliente já pré-configurados (GTM, CRM, ManyChat)"],
           ["5º dia útil", "Layout da página para aprovação"],
           ["8º dia útil", "Desenvolvimento e instalação dos códigos"],
           ["10º dia útil", "Teste final, ajuste (1 rodada) e publicação"]
         ],
         tecnologias: "HTML, CSS, JavaScript",
         prazo: "10 dias úteis",
-        valor: "R$ 2.800",
-        valorNota: "Com textos e imagens criados por mim. Se o cliente enviar o conteúdo: R$ 2.000.",
+        valor: "R$ 2.400",
+        valorNota: "Com textos e imagens enviados pelo cliente.",
         pagamento: "50% para iniciar e 50% na entrega, ou 6x no crédito (+12%)"
       },
       {
@@ -331,6 +490,7 @@
           "Vídeo de treinamento para uso do painel",
           "Instalação no domínio e hospedagem do cliente, com consultoria na contratação",
           "Instalação de códigos e ferramentas de venda e automação já adquiridas e pré-configuradas pelo cliente (Google Tag Manager, Google Analytics e Ads, formulário de CRM para captação de leads, botão/link do ManyChat)",
+          "1 reunião online com o cliente final (até 1 h), com a agência presente, para briefing ou apresentação",
           "Teste final e nota fiscal"
         ],
         naoIncluso: [
