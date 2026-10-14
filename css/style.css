@@ -115,7 +115,6 @@ body::after {
   box-shadow: 5px 5px 0 var(--lima);
 }
 /* active page: filled musgo + lima text (still lifts on hover) */
-.site-nav a.active,
 .site-nav a[aria-current="page"] {
   background: var(--musgo);
   color: var(--lima);
@@ -237,23 +236,6 @@ body::after {
   gap: 0.8rem;
   margin-top: 2rem;
 }
-
-/* ---- collage ---- */
-/* NOTE: .collage must NOT create a stacking context (no z-index/transform),
-   otherwise mix-blend-mode on children can't reach the page background */
-.collage {
-  position: relative;
-  height: min(78vh, 700px);
-}
-
-.c-item { position: absolute; }
-
-.c-blob {
-  top: 8%; right: 4%;
-  width: min(30vw, 400px);
-  z-index: 3;
-}
-.blob-shape { width: 100%; height: auto; display: block; }
 
 /* =========================================================
    MARQUEE
@@ -470,12 +452,6 @@ body::after {
 .work .cv-meta a:hover { background: color-mix(in srgb, var(--lima) 65%, transparent); }
 
 /* emphatic inline accent (BA in Graphic Design, native, fluent) */
-.emph {
-  font-family: var(--font-type);
-  font-style: italic;
-  font-weight: 700;
-  color: var(--melancia);
-}
 .emph-2 {
   font-family: var(--font-type);
   font-style: italic;
@@ -598,13 +574,6 @@ body::after {
   max-width: 1100px;
   margin: 0 auto;
 }
-.ph-engraving {
-  position: absolute;
-  top: 5.5rem; right: 4vw;
-  width: min(24vw, 280px);
-  transform: rotate(8deg);
-  z-index: -1;
-}
 .hero-kicker {
   font-family: var(--font-type);
   font-size: 0.95rem;
@@ -626,12 +595,18 @@ body::after {
 
 /* =========================================================
    PAGE HERO — split (illustration blob + copy)
-   used by design.html / uiux.html; resume.html keeps the plain
+   used by portfolio.html; resume.html keeps the plain
    .page-hero (no .ph-split inside → unaffected by this block)
    ========================================================= */
+/* wider stage than the plain 1100px .page-hero, so the illustration column
+   (0.79fr) lands at ~530px at ≥1400px — 1.28× the original ~415px (0.86fr in
+   the 1100px stage). Below 1400px the stage is the viewport and the column
+   keeps the same 0.79fr share; the title is a single unbreakable word, so
+   there is no room to give the illustration more beside it. */
+.page-hero--split { max-width: 1400px; }
 .ph-split {
   display: grid;
-  grid-template-columns: minmax(230px, 0.86fr) 1fr;
+  grid-template-columns: minmax(230px, 0.79fr) 1fr;
   align-items: center;
   gap: 2vw;
 }
@@ -673,11 +648,15 @@ body::after {
   transform: scale(var(--scale-in, 1));
 }
 .ph-copy { position: relative; z-index: 2; }
-.ph-copy .page-title { margin-top: 0; }
+/* 10% under the shared .page-title size */
+.ph-copy .page-title {
+  margin-top: 0;
+  font-size: calc(clamp(3.4rem, 10vw, 8.5rem) * 0.9);
+}
 
 @media (max-width: 900px) {
   .ph-split { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
-  .ph-illustration { width: min(72vw, 340px); margin: 0 auto; }
+  .ph-illustration { width: min(85%, 434px); margin: 0 auto; }
   .ph-copy .page-lede { margin-left: auto; margin-right: auto; }
 }
 
@@ -772,7 +751,7 @@ body::after {
    ========================================================= */
 .projects { max-width: 1100px; margin: 0 auto; padding: 2rem 6vw 6rem; }
 
-/* case collage — moss thumb (project cover placeholder) + organic blob
+/* case collage — cream thumb (project cover placeholder) + organic blob
    tag card, absolutely positioned & overlapping inside a fixed-height
    row so the composition reads as one hand-cut collage, not a grid */
 .case-collage {
@@ -788,8 +767,20 @@ body::after {
   align-items: center;
   margin-bottom: 2.6rem;
 }
+/* project area → tag colour. The blob image itself is picked in the markup
+   (rosa = img/design-blob-NN.svg, lima = img/ux-ui-blob-NN.svg); the text
+   on top of it needs the contrasting accent: vinho on rosa, melancia on
+   lima. Every .case carries exactly one of these two modifiers. */
+.case--design { --tag-ink: var(--vinho); }
+.case--uiux { --tag-ink: var(--melancia); }
+/* a project with a published case is an <a class="case"> — the whole card links */
+a.case { text-decoration: none; }
+/* cream-on-cream: the shadow is the only thing that lifts the thumb off the
+   page, so it has to wrap all four sides (the blobs' tight 0 12px 3px shadow
+   only shows a sliver below a cream rectangle). Same olive as the blobs. */
 .case-thumb {
-  background: var(--musgo);
+  background: var(--cru);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--musgo) 38%, transparent);
   width: 100%;
   aspect-ratio: 3 / 2;
 }
@@ -801,11 +792,20 @@ body::after {
   width: 74%;
   aspect-ratio: 1 / 1;
   margin-top: -12%;
+  /* blob + text are a layer of their own, above EVERY thumb (thumbs are z-index
+     auto) at all times. It has to be explicit: relying on the hover transform
+     to create the stacking context only worked while hovering, and the blob
+     dropped beneath the next card's thumb in DOM order whenever it ended. */
+  z-index: 1;
   /* lifted-button hover like .site-nav a, but bigger and drier (no overshoot,
      no box-shadow) — shape + text move together as one unit */
   transition: transform 0.15s ease-out;
 }
-.case-tag:hover { transform: translate(-14px, -14px); }
+/* hovering ANYWHERE on the card (thumb, blob or text) lifts its blob. The
+   hovered blob also rises above the other blobs: the highest z-index that
+   still sits under the fixed .site-header (z-index: 100), so it never paints
+   over the menu while scrolling beneath it. Thumbs stay below regardless. */
+.case:hover .case-tag { transform: translate(-14px, -14px); z-index: 99; }
 .case-tag-shape {
   position: absolute;
   /* per-blob knobs — override via .case--N .case-tag-shape (defaults = fill) */
@@ -816,7 +816,6 @@ body::after {
   /* lift the global img { max-width:100% } so --blob-w can exceed the tag box */
   max-width: none;
   max-height: none;
-  z-index: 1;
   /* same blob-shadow spec as .ph-blob above, scaled down for these
      smaller collage blobs */
   filter: drop-shadow(0 12px 3px color-mix(in srgb, var(--musgo) 20%, transparent));
@@ -840,7 +839,7 @@ body::after {
   font-style: italic;
   font-weight: 400;
   text-transform: lowercase;
-  color: var(--melancia);
+  color: var(--tag-ink);
 }
 
 .case-tag-list {
@@ -855,14 +854,8 @@ body::after {
   font-family: var(--font-type);
   font-size: 1.2rem;
   letter-spacing: 0.01em;
-  color: var(--melancia);
+  color: var(--tag-ink);
   white-space: nowrap;
-}
-
-/* uiux.html gallery — amp & tag list in vinho instead of melancia */
-.page-uiux .case-collage .case-tag-title .amp,
-.page-uiux .case-collage .case-tag-list li {
-  color: var(--vinho);
 }
 
 /* ===== below 1400px — no blobs; tag text sits inside the thumb (bottom-left).
@@ -880,9 +873,8 @@ body::after {
     margin: 0;
     padding: 1.7rem;
     display: block;
-    z-index: 1;
   }
-  .case-tag:hover { transform: none; }
+  .case:hover .case-tag { transform: none; }
   .case-tag-content { max-width: 100%; }
   .case-tag-list { margin-top: 0.3rem; }
 }
@@ -987,8 +979,6 @@ body::after {
     padding-top: 6.5rem;
     gap: 1rem;
   }
-  .collage { height: 54vh; order: -1; margin-top: 1rem; }
-  .c-blob { width: min(52vw, 320px); right: 8%; }
   .manifesto-cols { grid-template-columns: 1fr; gap: 1.4rem; }
   .areas-stage { flex-direction: column; gap: 2.5rem; }
   /* below 900px the two areas blocks stack vertically; instead of the
@@ -1002,7 +992,6 @@ body::after {
   .cv-grid { grid-template-columns: 1fr; }
   .cv-timeline > li { grid-template-columns: 1fr; gap: 0.4rem; }
   .page-hero { padding-top: 8rem; }
-  .ph-engraving { width: 34vw; opacity: 0.85; }
 }
 
 @media (prefers-reduced-motion: reduce) {

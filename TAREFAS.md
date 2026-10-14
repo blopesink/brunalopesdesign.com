@@ -66,12 +66,12 @@ _Maior peça de conteúdo. Fazer antes do bilíngue._
 ## Bloco 3.5 — Redesign das páginas Design & UI/UX
 _Fechar o design dessas páginas **antes** do bilíngue (pra traduzir uma vez só)._
 
-- [x] **3.5.1** Refazer o design da página **[design.html](design.html)** —
+- [x] **3.5.1** Refazer o design da página **`design.html`** _(removida — ver 3.6)_ —
       page-hero, grid de projetos, CTAs
       — page-hero virou split ilustração (blob + beziers + PNG) / título+lede;
       grid de projetos virou `.case-collage` (retângulos musgo = thumbs +
       blobs orgânicos com título/tags), textos de preenchimento por enquanto
-- [x] **3.5.2** Refazer o design da página **[uiux.html](uiux.html)** —
+- [x] **3.5.2** Refazer o design da página **`uiux.html`** _(removida — ver 3.6)_ —
       page-hero, cases em destaque, toolkit design-to-code, CTAs
       — mesmo tratamento de hero; os 2 `case-featured` (Nexus CRM / Ultimatum)
       foram substituídos pelo mesmo `.case-collage` de placeholders (o link
@@ -84,17 +84,52 @@ _Fechar o design dessas páginas **antes** do bilíngue (pra traduzir uma vez s�
       abre `resume.html` — decidir se vira `index.html#resume` (ver item 1.1)
       — agora aponta pra `index.html#resume`
 
+- [x] **3.6 Pivô — uma página só de portfólio** (`design.html` + `uiux.html` →
+      **[portfolio.html](portfolio.html)**)
+  - [x] Nav: "Design" e "UI/UX" viraram **"Portfolio"** (index, resume, portfolio
+        e header dos cases em `js/case-render.js`)
+  - [x] Todos os atalhos da index (nav, botões do hero, os dois blobs de "Two
+        paths") apontam para `portfolio.html`; "← projetos" dos cases também
+  - [x] `.case-collage` com projetos **intercalados**: slots 1/3/5 = design
+        (blob **rosa**, `img/design-blob-NN.svg`, texto **vinho**) · 2/4/6 =
+        ui/ux (blob **lima**, `img/ux-ui-blob-NN.svg`, texto **melancia**)
+  - [x] Cor do texto vem de `--tag-ink`, definida por `.case--design` /
+        `.case--uiux` (substitui as regras `.page-uiux`). Para novo projeto:
+        escolher o slot `case--N` + um dos dois modificadores de área
+  - [x] SVGs dos blobs estavam com nome trocado (`design-blob` era lima) —
+        renomeados para o nome bater com a cor
+  - [x] i18n: `des.*`/`ux.*` → `port.*`; `nav.design`/`nav.uiux` → `nav.portfolio`
+  - [x] CSS sem uso removido: `.page-uiux`, `.collage`, `.c-item`, `.c-blob`,
+        `.ph-engraving`, `.emph`, `.site-nav a.active`
+  - [x] Ajustes visuais: título "Portfolio" sólido (sem outline) e 10% menor;
+        colagem do olho a ~530px em ≥1400px (palco do hero `.page-hero--split`
+        a 1400px + coluna `0.79fr`; era ~415px no design original);
+        `.case-thumb` agora em `--cru` com sombra suave nos 4 lados
+  - [x] Camadas do collage: `.case-tag` (blob + texto) tem `z-index: 1` fixo,
+        sempre acima de qualquer thumb (`auto`) — nenhum hover de thumb mexe
+        nisso. Hover em QUALQUER parte do card (`.case:hover .case-tag`: thumb,
+        blob ou texto) desloca o blob e o sobe a `99` (logo abaixo do
+        `.site-header`, 100) para passar por cima de outros blobs. Antes o contexto de
+        empilhamento só existia durante o `transform` do hover e o blob caía
+        atrás do thumb vizinho ao sair dele
+  - [x] Slot 5 (design · "Law & Sales") ligado ao case `cases/ultimatum/` —
+        card vira `<a class="case …">`; os demais seguem `<div>` até terem case
+  - Saiu junto: faixa "Design-to-code toolkit" da uiux.html (está no histórico
+    do git se quiser recolocar)
+  - Órfãos de imagem (nenhuma página usa mais): `img/lirio-ux-ui-hero.png`,
+    `img/blob-hero-ux-ui.svg`
+
 ---
 
 ## Bloco 4 — Bilíngue (EN / PT-BR)
 _Só depois que TODO o conteúdo acima estiver fechado, pra traduzir uma vez só._
 
 - [x] **4.1** Tornar o site bilíngue: inglês + português brasileiro (toggle de idioma)
-      — botão "PT"/"EN" na navbar (index, design, uiux, resume.html); toggle
+      — botão "PT"/"EN" na navbar (index, portfolio, resume.html); toggle
       client-side via [js/i18n.js](js/i18n.js) (`data-i18n` / `data-i18n-attr`
-      + dicionário EN/PT), idioma salvo em `localStorage` e aplicado nas 4
-      páginas. **Fora do escopo, de propósito:** textos de preenchimento do
-      `.case-collage` (design.html / uiux.html) — ver Bloco 6.
+      + dicionário EN/PT), idioma salvo em `localStorage` e aplicado em todas
+      as páginas. **Fora do escopo, de propósito:** textos de preenchimento do
+      `.case-collage` (`portfolio.html`) — ver Bloco 6.
 - [x] **4.2** Alternar os botões de download do currículo conforme o idioma:
       PT-BR quando o site estiver em PT-BR, ENG quando estiver em ENG
       — `data-cv-en`/`data-cv-pt` nos botões de PDF (index.html e

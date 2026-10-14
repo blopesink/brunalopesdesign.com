@@ -47,8 +47,7 @@
     '</a>' +
     '<nav class="site-nav">' +
       '<a href="' + BASE + 'index.html#about">about</a>' +
-      '<a href="' + BASE + 'design.html">design</a>' +
-      '<a href="' + BASE + 'uiux.html">ui/ux</a>' +
+      '<a href="' + BASE + 'portfolio.html">portfolio</a>' +
       '<a href="' + BASE + 'index.html#resume">résumé</a>' +
       '<a href="#contact" class="nav-cta">contact</a>' +
     '</nav>';
@@ -70,7 +69,7 @@
   }
 
   var back = el("a", "case-back px", "← projetos");
-  back.href = BASE + (C.voltar || "design.html");
+  back.href = BASE + (C.voltar || "portfolio.html");
   main.appendChild(back);
 
   // hero

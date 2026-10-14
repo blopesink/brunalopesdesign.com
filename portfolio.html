@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design — Bruna Lopes</title>
-  <meta name="description" content="Graphic design, branding, illustration, murals and tattoo — the design side of Maria Bruna Lopes' portfolio.">
+  <title>Portfolio — Bruna Lopes</title>
+  <meta name="description" content="Selected projects by Maria Bruna Lopes — graphic design, branding and illustration alongside UI/UX and design-to-code.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Besley:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23f1989b'/><text x='2' y='13' font-family='monospace' font-size='13' font-weight='bold' fill='%237f132b'>D</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23f1989b'/><text x='2' y='13' font-family='monospace' font-size='13' font-weight='bold' fill='%237f132b'>P</text></svg>">
 </head>
-<body class="page-design">
+<body>
 
   <header class="site-header">
     <a class="logo" href="index.html">
@@ -20,8 +20,7 @@
     </a>
     <nav class="site-nav">
       <a href="index.html#about" data-i18n="nav.about">About</a>
-      <a href="design.html" aria-current="page" data-i18n="nav.design">Design</a>
-      <a href="uiux.html" data-i18n="nav.uiux">UI/UX</a>
+      <a href="portfolio.html" aria-current="page" data-i18n="nav.portfolio">Portfolio</a>
       <a href="index.html#resume" data-i18n="nav.resume">Résumé</a>
       <a href="index.html#contact" class="nav-cta" data-i18n="nav.contact">Contact</a>
       <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch to Portuguese">PT</button>
@@ -29,27 +28,34 @@
   </header>
 
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero page-hero--split">
     <div class="ph-split">
       <div class="ph-illustration">
         <img class="ph-blob" src="img/blob-hero-design.svg" alt="" aria-hidden="true" data-depth="0.12" data-scale-in="1.05" data-scale-to="0.98" data-scale-trigger="page" data-scale-range="400">
-        <img class="ph-figure" src="img/olho-design-hero.png" alt="Illustrated eye artwork, from Bruna's authorial illustration and tattoo practice" data-i18n-attr="alt:des.figure_alt" data-depth="0.3" data-scale-in="0.94" data-scale-to="1.03" data-scale-trigger="page" data-scale-range="400">
+        <img class="ph-figure" src="img/olho-design-hero.png" alt="Illustrated eye artwork, from Bruna's authorial illustration and tattoo practice" data-i18n-attr="alt:port.figure_alt" data-depth="0.3" data-scale-in="0.94" data-scale-to="1.03" data-scale-trigger="page" data-scale-range="400">
         <img class="ph-beziers" src="img/beziers-design-hero.svg" alt="" aria-hidden="true" data-depth="0.55" data-scale-in="0.85" data-scale-to="1.1" data-scale-trigger="page" data-scale-range="400">
       </div>
       <div class="ph-copy">
-        <p class="hero-kicker" data-i18n="des.hero_kicker"><span class="px">✳ area 01</span> of two</p>
-        <h1 class="page-title">Design</h1>
-        <p class="page-lede" data-i18n="des.page_lede">Brand identity, packaging and campaign design — enriched by a parallel life in illustration, large-scale murals and tattoo artistry. One concept, translated across unconventional physical and digital surfaces.</p>
+        <p class="hero-kicker" data-i18n="port.hero_kicker"><span class="px">✳ design</span> &amp; ui/ux</p>
+        <h1 class="page-title" data-i18n="port.title">Portfolio</h1>
+        <p class="page-lede" data-i18n="port.page_lede">Brand identity, packaging and illustration on one side; research, prototyping and design-to-code interfaces on the other. Selected projects from both paths, in one place.</p>
       </div>
     </div>
   </section>
 
   <!-- ============ PROJECTS ============ -->
+  <!-- Each .case is one project. The area modifier sets the blob + tag colour:
+         case--design → rosa blob (img/design-blob-NN.svg), vinho tag text
+         case--uiux   → lima blob (img/ux-ui-blob-NN.svg), melancia tag text
+       The number (case--1…6) is the collage slot (position + blob shape), so
+       alternating design / ui/ux means alternating the area on slots 1…6.
+       A project with a published case is an <a class="case …" href="cases/…">
+       instead of a <div> — the whole card is the link. -->
   <main class="projects">
-    <h2 class="areas-title reveal" data-i18n="des.projects_title"><span class="px">✳</span> Projects</h2>
+    <h2 class="areas-title reveal" data-i18n="port.projects_title"><span class="px">✳</span> Projects</h2>
 
     <div class="case-collage">
-      <div class="case case--1 reveal">
+      <div class="case case--1 case--design reveal">
         <div class="case-thumb"></div>
         <div class="case-tag">
           <img class="case-tag-shape" src="img/design-blob-01.svg" alt="" aria-hidden="true">
@@ -65,9 +71,9 @@
         </div>
       </div>
 
-      <div class="case case--2 reveal">
+      <div class="case case--2 case--uiux reveal">
         <div class="case-tag">
-          <img class="case-tag-shape" src="img/design-blob-02.svg" alt="" aria-hidden="true">
+          <img class="case-tag-shape" src="img/ux-ui-blob-02.svg" alt="" aria-hidden="true">
           <div class="case-tag-content">
             <h3 class="case-tag-title">Law <span class="amp">&amp;</span> Sales</h3>
             <ul class="case-tag-list">
@@ -81,7 +87,7 @@
         <div class="case-thumb"></div>
       </div>
 
-      <div class="case case--3 reveal">
+      <div class="case case--3 case--design reveal">
         <div class="case-thumb"></div>
         <div class="case-tag">
           <img class="case-tag-shape" src="img/design-blob-03.svg" alt="" aria-hidden="true">
@@ -97,9 +103,9 @@
         </div>
       </div>
 
-      <div class="case case--4 reveal">
+      <div class="case case--4 case--uiux reveal">
         <div class="case-tag">
-          <img class="case-tag-shape" src="img/design-blob-04.svg" alt="" aria-hidden="true">
+          <img class="case-tag-shape" src="img/ux-ui-blob-04.svg" alt="" aria-hidden="true">
           <div class="case-tag-content">
             <h3 class="case-tag-title">Title <span class="amp">&amp;</span> Clue</h3>
             <ul class="case-tag-list">
@@ -113,7 +119,7 @@
         <div class="case-thumb"></div>
       </div>
 
-      <div class="case case--5 reveal">
+      <a class="case case--5 case--design reveal" href="cases/ultimatum/index.html">
         <div class="case-thumb"></div>
         <div class="case-tag">
           <img class="case-tag-shape" src="img/design-blob-05.svg" alt="" aria-hidden="true">
@@ -127,12 +133,12 @@
             </ul>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="case case--6 reveal">
+      <div class="case case--6 case--uiux reveal">
         <div class="case-thumb"></div>
         <div class="case-tag">
-          <img class="case-tag-shape" src="img/design-blob-05.svg" alt="" aria-hidden="true">
+          <img class="case-tag-shape" src="img/ux-ui-blob-05.svg" alt="" aria-hidden="true">
           <div class="case-tag-content">
             <h3 class="case-tag-title">Law <span class="amp">&amp;</span> Sales</h3>
             <ul class="case-tag-list">
@@ -147,8 +153,8 @@
     </div>
 
     <div class="hero-actions center reveal">
-      <a class="hbtn hbtn-rosa" href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener" data-i18n="des.cta_behance">Full archive on Behance <span class="px">→</span></a>
-      <a class="hbtn hbtn-lima" href="uiux.html" data-i18n="des.cta_uiux">Cross to UI/UX <span class="px">→</span></a>
+      <a class="hbtn hbtn-rosa" href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener" data-i18n="port.cta_behance">Full archive on Behance <span class="px">→</span></a>
+      <a class="hbtn hbtn-lima" href="index.html#resume" data-i18n="port.cta_resume">Read the résumé <span class="px">→</span></a>
     </div>
   </main>
 

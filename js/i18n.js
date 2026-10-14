@@ -4,18 +4,17 @@
    aria-label, content, ...) instead of innerHTML.
    data-cv-en / data-cv-pt on the résumé download links swap the PDF href.
    Language is persisted in localStorage under "site-lang" and applies across
-   every page (index.html, design.html, uiux.html, resume.html) since they
-   all load this file.
-   NOTE: the case-collage placeholders (design.html / uiux.html project
-   grids) are intentionally left untagged — filler text pending real case
-   content (see TAREFAS.md Bloco 6), not worth translating twice. */
+   every page (index.html, portfolio.html, resume.html) since they all load
+   this file.
+   NOTE: the case-collage placeholders (portfolio.html project grid) are
+   intentionally left untagged — filler text pending real case content
+   (see TAREFAS.md Bloco 6), not worth translating twice. */
 
 const translations = {
   en: {
     /* ---- shared: nav + footer ---- */
     "nav.about": "About",
-    "nav.design": "Design",
-    "nav.uiux": "UI/UX",
+    "nav.portfolio": "Portfolio",
     "nav.resume": "Résumé",
     "nav.contact": "Contact",
     "footer.tag": "[ get in touch ]",
@@ -83,27 +82,14 @@ const translations = {
     "idx.rm.exp4": '<h4>Creative Director <span class="cv-at">— Dupplamente Creative Projects</span></h4>\n                <p>As a partner, I ran branding projects end-to-end, coordinating multidisciplinary teams assembled on demand — researchers, photographers, and print suppliers. That collaborative orchestration, paired with Design Thinking, produced deep visual identities aligned with each client\'s real needs. In all, I helped over 60 businesses launch or consolidate in the market.</p>',
     "idx.rm.exp5": '<h4>UX/UI Designer <span class="cv-at">— Ultimatum · legal practice management software</span></h4>\n                <p>This first stint at Ultimatum put me in charge of the UI, visual identity, and design system of two digital products built from the ground up. The work proved decisive for the company\'s growth and opened doors to key contracts with several regional chapters of the OAB (Brazil\'s Bar Association).</p>',
 
-    /* ---- design.html ---- */
-    "des.hero_kicker": '<span class="px">✳ area 01</span> of two',
-    "des.page_lede": "Brand identity, packaging and campaign design — enriched by a parallel life in illustration, large-scale murals and tattoo artistry. One concept, translated across unconventional physical and digital surfaces.",
-    "des.projects_title": '<span class="px">✳</span> Projects',
-    "des.cta_behance": 'Full archive on Behance <span class="px">→</span>',
-    "des.cta_uiux": 'Cross to UI/UX <span class="px">→</span>',
-    "des.figure_alt": "Illustrated eye artwork, from Bruna's authorial illustration and tattoo practice",
-
-    /* ---- uiux.html ---- */
-    "ux.hero_kicker": '<span class="px">✳ area 02</span> of two',
-    "ux.page_lede": "Research, wireframing and rapid prototyping — carried all the way to implementation-ready interfaces in HTML, CSS and JavaScript. Design and development, closer together.",
-    "ux.toolkit_title": '<span class="px">✳</span> Design-to-code toolkit',
-    "ux.toolkit_research_label": "[ research ]",
-    "ux.toolkit_research_value": "User research, competitive benchmarking, wireframing, rapid prototyping",
-    "ux.toolkit_build_label": "[ build ]",
-    "ux.toolkit_build_value": "HTML, CSS, JavaScript, Bootstrap, Chart.js, Figma",
-    "ux.toolkit_accelerate_label": "[ accelerate ]",
-    "ux.toolkit_accelerate_value": "AI-powered workflows — research synthesis, automation, assisted coding",
-    "ux.cta_resume": "Résumé — UI/UX track",
-    "ux.cta_design": 'Cross to Design <span class="px">→</span>',
-    "ux.figure_alt": "Illustrated lily artwork, part of Bruna's design-to-code UI/UX practice",
+    /* ---- portfolio.html ---- */
+    "port.hero_kicker": '<span class="px">✳ design</span> & ui/ux',
+    "port.title": "Portfolio",
+    "port.page_lede": "Brand identity, packaging and illustration on one side; research, prototyping and design-to-code interfaces on the other. Selected projects from both paths, in one place.",
+    "port.projects_title": '<span class="px">✳</span> Projects',
+    "port.cta_behance": 'Full archive on Behance <span class="px">→</span>',
+    "port.cta_resume": 'Read the résumé <span class="px">→</span>',
+    "port.figure_alt": "Illustrated eye artwork, from Bruna's authorial illustration and tattoo practice",
 
     /* ---- resume.html ---- */
     "res.title": "Résumé — Bruna Lopes",
@@ -139,8 +125,7 @@ const translations = {
 
   pt: {
     "nav.about": "Sobre",
-    "nav.design": "Design",
-    "nav.uiux": "UI/UX",
+    "nav.portfolio": "Portfólio",
     "nav.resume": "Currículo",
     "nav.contact": "Contato",
     "footer.tag": "[ fale comigo ]",
@@ -206,25 +191,13 @@ const translations = {
     "idx.rm.exp4": '<h4>Diretora Criativa <span class="cv-at">— Dupplamente Projetos Criativos</span></h4>\n                <p>Como sócia, conduzi projetos de branding do início ao fim, coordenando equipes multidisciplinares montadas sob demanda — pesquisadores, fotógrafos e fornecedores de impressão. Essa orquestração colaborativa, aliada ao Design Thinking, produziu identidades visuais profundas alinhadas às necessidades reais de cada cliente. No total, ajudei mais de 60 negócios a lançar ou consolidar sua presença no mercado.</p>',
     "idx.rm.exp5": '<h4>UX/UI Designer <span class="cv-at">— Ultimatum · software de gestão para escritórios de advocacia</span></h4>\n                <p>Essa primeira passagem pela Ultimatum me colocou à frente da UI, identidade visual e design system de dois produtos digitais construídos do zero. O trabalho foi decisivo para o crescimento da empresa e abriu portas para contratos importantes com diversas seccionais da OAB.</p>',
 
-    "des.hero_kicker": '<span class="px">✳ área 01</span> de duas',
-    "des.page_lede": "Identidade de marca, embalagens e design de campanhas — enriquecidos por uma vida paralela na ilustração, murais de grande escala e tatuagem. Um único conceito, traduzido em superfícies físicas e digitais fora do convencional.",
-    "des.projects_title": '<span class="px">✳</span> Projetos',
-    "des.cta_behance": 'Arquivo completo no Behance <span class="px">→</span>',
-    "des.cta_uiux": 'Ir para UI/UX <span class="px">→</span>',
-    "des.figure_alt": "Ilustração de um olho, da prática autoral de ilustração e tatuagem de Bruna",
-
-    "ux.hero_kicker": '<span class="px">✳ área 02</span> de duas',
-    "ux.page_lede": "Pesquisa, wireframes e prototipagem rápida — levados até interfaces prontas para implementação em HTML, CSS e JavaScript. Design e desenvolvimento, mais próximos.",
-    "ux.toolkit_title": '<span class="px">✳</span> Kit de design-to-code',
-    "ux.toolkit_research_label": "[ pesquisa ]",
-    "ux.toolkit_research_value": "Pesquisa com usuários, benchmarking competitivo, wireframes, prototipagem rápida",
-    "ux.toolkit_build_label": "[ construção ]",
-    "ux.toolkit_build_value": "HTML, CSS, JavaScript, Bootstrap, Chart.js, Figma",
-    "ux.toolkit_accelerate_label": "[ acelerar ]",
-    "ux.toolkit_accelerate_value": "Fluxos de trabalho com IA — síntese de pesquisa, automação, codificação assistida",
-    "ux.cta_resume": "Currículo — trilha UI/UX",
-    "ux.cta_design": 'Ir para Design <span class="px">→</span>',
-    "ux.figure_alt": "Ilustração de um lírio, parte da prática de design-to-code em UI/UX de Bruna",
+    "port.hero_kicker": '<span class="px">✳ design</span> e ui/ux',
+    "port.title": "Portfólio",
+    "port.page_lede": "Identidade de marca, embalagens e ilustração de um lado; pesquisa, prototipagem e interfaces design-to-code do outro. Projetos selecionados dos dois caminhos, num só lugar.",
+    "port.projects_title": '<span class="px">✳</span> Projetos',
+    "port.cta_behance": 'Arquivo completo no Behance <span class="px">→</span>',
+    "port.cta_resume": 'Ler o currículo <span class="px">→</span>',
+    "port.figure_alt": "Ilustração de um olho, da prática autoral de ilustração e tatuagem de Bruna",
 
     "res.title": "Currículo — Bruna Lopes",
     "res.hero_kicker": '<span class="px">✳ o</span> Currículo',

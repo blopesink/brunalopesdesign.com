@@ -10,7 +10,7 @@ window.CASE = {
   titulo: "Ultimatum",
   categoria: "✳ Identidade de marca · rebranding",
   resumo: "Rebranding da pioneira brasileira em tecnologia jurídica. Uma marca metalinguística — robusta, tecnológica e descomplicada — construída para sustentar a próxima década da Ultimatum.",
-  voltar: "design.html",
+  voltar: "portfolio.html",
 
   // TEMA — imersão clara na identidade da Ultimatum (prata claro → chumbo).
   // Fundo prata claro metálico; texto chumbo; símbolo clara COM dropshadow
