@@ -118,9 +118,20 @@
     .nota .etapas li::before { content: none; }
     .nota a, footer a { color: var(--vinho); overflow-wrap: anywhere; }
     .nota .etapas span { min-width: 0; }
-    footer { margin: 56px 0 0; padding: 28px 0 56px; border-top: 2px solid var(--tinta); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    footer p { font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: 1.15rem; color: var(--vinho); }
-    footer span { font-family: var(--font-type); font-size: .78rem; color: #5b5648; align-self: center; }
+    /* footer: lima band bleeding to main's edges, after the index .site-footer */
+    .pf { margin: 72px -48px 0; padding: 72px 48px 40px; background: var(--lima); border-top: 2px solid var(--tinta); }
+    .pf-kicker { font-family: var(--font-type); font-size: .95rem; margin-bottom: 28px; }
+    .pf-row { display: flex; justify-content: space-between; align-items: center; gap: 40px; margin-bottom: 56px; }
+    .pf-contacts { display: flex; flex-direction: column; align-items: flex-start; }
+    .pf-label { font-family: var(--font-type); font-size: .78rem; letter-spacing: .05em; text-transform: uppercase; color: var(--musgo); }
+    .pf-label + .pf-big { margin-top: 4px; }
+    .pf-big + .pf-label { margin-top: 28px; }
+    .pf-big { font-family: var(--font-display); font-size: clamp(1.9rem, 4.6vw, 4.2rem); line-height: 1; text-transform: lowercase; text-decoration: none; color: var(--vinho); transition: color .15s; }
+    .pf-big:hover { color: var(--musgo); }
+    .pf-links { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; flex-shrink: 0; }
+    .pf-links a { font-family: var(--font-type); font-size: .95rem; color: var(--tinta); text-decoration: none; padding: .32rem .8rem; border-radius: 2px; transition: box-shadow .13s ease, transform .26s cubic-bezier(.34, 1.56, .64, 1) .06s; }
+    .pf-links a:hover { transform: translate(-5px, -5px); box-shadow: 5px 5px 0 var(--rosa); }
+    .pf-note { font-family: var(--font-type); font-size: .78rem; opacity: .75; }
 
     @media (max-width: 1250px) {
       .grid, .notas { grid-template-columns: repeat(2, 1fr); }
@@ -138,6 +149,9 @@
       .rail .areas, .rail .vert { white-space: normal; }
       main { margin-left: 0; padding: 32px 20px 0; }
       .grid, .notas { grid-template-columns: 1fr; }
+      .pf { margin: 56px -20px 0; padding: 48px 20px 32px; }
+      .pf-row { flex-direction: column; align-items: flex-start; gap: 32px; margin-bottom: 40px; }
+      .pf-links a { padding-left: 0; }
     }
   </style>
 </head>
@@ -290,9 +304,23 @@
       </div>
     </div>
 
-    <footer>
-      <p>Obrigada! Vamos conversar no WhatsApp: <a href="https://wa.me/5562981192575">(62) 98119-2575</a> · <a href="mailto:hello@brunalopesdesign.com">hello@brunalopesdesign.com</a></p>
-      <span>Proposta confidencial — Bruna Lopes, 2026. Esta página não é pública.</span>
+    <!-- same structure as the index footer (.site-footer): lima band, big contacts, links column -->
+    <footer class="pf">
+      <p class="pf-kicker">[ obrigada! vamos conversar ]</p>
+      <div class="pf-row">
+        <div class="pf-contacts">
+          <span class="pf-label">WhatsApp</span>
+          <a class="pf-big" href="https://wa.me/5562981192575" target="_blank" rel="noopener">(62) 98119-2575</a>
+          <span class="pf-label">E-mail</span>
+          <a class="pf-big" href="mailto:hello@brunalopesdesign.com">hello@<br>brunalopesdesign.com</a>
+        </div>
+        <nav class="pf-links" aria-label="Links externos">
+          <a href="index.html?lang=pt" target="_blank" rel="noopener">Site ↗</a>
+          <a href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener">Portfólio no Behance ↗</a>
+          <a href="index.html?lang=pt#curriculo" target="_blank" rel="noopener">Experiência profissional ↗</a>
+        </nav>
+      </div>
+      <p class="pf-note">Proposta confidencial · Bruna Lopes, 2026. Esta página não é pública.</p>
     </footer>
   </main>
 
