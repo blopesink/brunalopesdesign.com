@@ -1,8 +1,6 @@
 /* Loja de serviços: conteúdo e preços.
    Fonte única da loja (loja.html, produto.html, carrinho.html, pagamento.html).
-   Valores em reais, inteiros. Para mudar um preço, edite aqui.
-   Os textos de cada produto vêm da proposta-inicial.html; se um preço mudar,
-   atualize também a proposta (ela guarda os valores como texto). */
+   Valores em reais, inteiros. Para mudar um preço, edite só aqui. */
 
 /* ---- subprodutos de conteúdo dos sites (valores sugeridos) ---- */
 const SUB_ALTERACAO = {

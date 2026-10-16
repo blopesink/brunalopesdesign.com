@@ -1,5 +1,6 @@
-/* Loja de serviços. Tokens, rail, hero e rodapé vêm da proposta-inicial.html
-   (que mantém o CSS inline); os componentes da loja usam o prefixo .prod-. */
+/* Loja de serviços (loja, produto, carrinho e pagamento). Tokens, rail, hero e
+   rodapé são herdados da antiga proposta inicial; os componentes dos produtos
+   usam o prefixo .prod-. */
 :root {
   --oliva: #2b331d; --cru: #ece7db; --rosa: #f1989b; --lima: #d9e021;
   --vinho: #7f132b; --tinta: #16150f; --musgo: #5c6b3a;

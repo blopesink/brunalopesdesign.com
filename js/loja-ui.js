@@ -111,7 +111,7 @@
 
   function paginaLoja() {
     const descontos = L.descontos.map((d, i) => (i === 0 ? `${d.min} serviços, ${d.pct}%` : i === L.descontos.length - 1 ? `${d.min} ou mais, ${d.pct}%` : `${d.min}, ${d.pct}%`)).join(" · ");
-    /* hero: mesmo conteúdo e marcação do topo da proposta-inicial.html */
+    /* hero: colagem em 3 camadas + título e descrição (herdado da antiga proposta inicial) */
     const conteudo = `
       <nav class="links" aria-label="Links externos">
         <a href="index.html?lang=pt" target="_blank" rel="noopener">Site</a>
