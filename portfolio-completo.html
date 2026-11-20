@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- PORTFÓLIO COMPLETO (com os cards dos projetos) — ESCONDIDO por enquanto: nenhuma página linka para cá e o arquivo fica fora do deploy (.github/workflows/deploy.yml). Para reativar: renomeie para portfolio.html e tire a linha do exclude. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Bruna Lopes</title>
+  <meta name="description" content="Selected projects by Maria Bruna Lopes — graphic design, branding and illustration alongside UI/UX and design-to-code.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Besley:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23f1989b'/><text x='2' y='13' font-family='monospace' font-size='13' font-weight='bold' fill='%237f132b'>P</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-name">Bruna Lopes</span>
+      <span class="logo-sub">ui/ux — design</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html#about" data-i18n="nav.about">About</a>
+      <a href="portfolio.html" aria-current="page" data-i18n="nav.portfolio">Portfolio</a>
+      <a href="index.html#resume" data-i18n="nav.resume">Résumé</a>
+      <a href="index.html#contact" class="nav-cta" data-i18n="nav.contact">Contact</a>
+      <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch to Portuguese">PT</button>
+    </nav>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero page-hero--split">
+    <div class="ph-split">
+      <div class="ph-illustration">
+        <img class="ph-blob" src="img/blob-hero-design.svg" alt="" aria-hidden="true" data-depth="0.12" data-scale-in="1.05" data-scale-to="0.98" data-scale-trigger="page" data-scale-range="400">
+        <img class="ph-figure" src="img/olho-design-hero.png" alt="Illustrated eye artwork, from Bruna's authorial illustration and tattoo practice" data-i18n-attr="alt:port.figure_alt" data-depth="0.3" data-scale-in="0.94" data-scale-to="1.03" data-scale-trigger="page" data-scale-range="400">
+        <img class="ph-beziers" src="img/beziers-design-hero.svg" alt="" aria-hidden="true" data-depth="0.55" data-scale-in="0.85" data-scale-to="1.1" data-scale-trigger="page" data-scale-range="400">
+      </div>
+      <div class="ph-copy">
+        <p class="hero-kicker" data-i18n="port.hero_kicker"><span class="px">✳ design</span> &amp; ui/ux</p>
+        <h1 class="page-title" data-i18n="port.title">Portfolio</h1>
+        <p class="page-lede" data-i18n="port.page_lede">Brand identity, packaging and illustration on one side; research, prototyping and design-to-code interfaces on the other. Selected projects from both paths, in one place.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <!-- Each .case is one project. The area modifier sets the blob + tag colour:
+         case--design → rosa blob (img/design-blob-NN.svg), vinho tag text
+         case--uiux   → lima blob (img/ux-ui-blob-NN.svg), melancia tag text
+       The number (case--1…6) is the collage slot (position + blob shape); the
+       colour follows the project's area — the shape colour is what tells the areas
+       apart: rosa = design (1 Nexus excluded), lima = ui/ux. Desktop reading
+       order: 1 · 6 · 2 · 3 · 4 · 5.
+       Slots: 1 Nexus Retrofit (ui/ux) · 6 Rebranding Ultimatum · 2 Zen com a Gente ·
+       3 Mural Cantô · 4 Studio Burger (design) · 5 Nexus CRM Module (ui/ux).
+       Title = one line of text, no subtitle; .case-tag-list = skills/keywords.
+       A project with a published case is an <a class="case …" href="cases/…">
+       instead of a <div> — the whole card is the link. -->
+  <main class="projects">
+    <h2 class="areas-title reveal" data-i18n="port.projects_title"><span class="px">✳</span> Projects</h2>
+
+    <div class="case-collage">
+      <div class="case case--1 case--uiux reveal">
+        <div class="case-thumb"></div>
+        <div class="case-tag">
+          <img class="case-tag-shape" src="img/ux-ui-blob-01.svg" alt="" aria-hidden="true">
+          <div class="case-tag-content">
+            <h3 class="case-tag-title">Nexus Retrofit</h3>
+            <ul class="case-tag-list">
+              <li data-i18n="port.tag.uxresearch">[ux research]</li>
+              <li data-i18n="port.tag.market">[market analysis]</li>
+              <li>[interface]</li>
+              <li data-i18n="port.tag.d2c">[design-to-code]</li>
+              <li data-i18n="port.tag.lawtech">[law tech]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="case case--2 case--design reveal">
+        <div class="case-tag">
+          <img class="case-tag-shape" src="img/design-blob-02.svg" alt="" aria-hidden="true">
+          <div class="case-tag-content">
+            <h3 class="case-tag-title">Zen com<br>a Gente</h3>
+            <ul class="case-tag-list">
+              <li>[naming]</li>
+              <li data-i18n="port.tag.visualid">[visual identity]</li>
+              <li>[yoga]</li>
+              <li data-i18n="port.tag.volunteering">[volunteering]</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-thumb"></div>
+      </div>
+
+      <a class="case case--3 case--design reveal" href="cases/mural-canto/index.html">
+        <div class="case-thumb"></div>
+        <div class="case-tag">
+          <img class="case-tag-shape" src="img/design-blob-03.svg" alt="" aria-hidden="true">
+          <div class="case-tag-content">
+            <h3 class="case-tag-title">Mural Cantô</h3>
+            <ul class="case-tag-list">
+              <li data-i18n="port.tag.illustration">[illustration]</li>
+              <li>[mural]</li>
+              <li data-i18n="port.tag.karaoke">[karaoke]</li>
+            </ul>
+          </div>
+        </div>
+      </a>
+
+      <div class="case case--4 case--design reveal">
+        <div class="case-tag">
+          <img class="case-tag-shape" src="img/design-blob-04.svg" alt="" aria-hidden="true">
+          <div class="case-tag-content">
+            <h3 class="case-tag-title">Studio Burger</h3>
+            <ul class="case-tag-list">
+              <li>[branding]</li>
+              <li data-i18n="port.tag.illustration">[illustration]</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-thumb"></div>
+      </div>
+
+      <div class="case case--5 case--uiux reveal">
+        <div class="case-thumb"></div>
+        <div class="case-tag">
+          <img class="case-tag-shape" src="img/ux-ui-blob-05.svg" alt="" aria-hidden="true">
+          <div class="case-tag-content">
+            <h3 class="case-tag-title" data-i18n="port.case5.title">Nexus CRM Module</h3>
+            <ul class="case-tag-list">
+              <li data-i18n="port.tag.uxresearch">[ux research]</li>
+              <li data-i18n="port.tag.market">[market analysis]</li>
+              <li>[interface]</li>
+              <li data-i18n="port.tag.d2c">[design-to-code]</li>
+              <li data-i18n="port.tag.lawtech">[law tech]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <a class="case case--6 case--design reveal" href="cases/ultimatum/index.html">
+        <div class="case-thumb"></div>
+        <div class="case-tag">
+          <img class="case-tag-shape" src="img/design-blob-05.svg" alt="" aria-hidden="true">
+          <div class="case-tag-content">
+            <h3 class="case-tag-title">Rebranding Ultimatum</h3>
+            <ul class="case-tag-list">
+              <li>[branding]</li>
+              <li>[redesign]</li>
+              <li data-i18n="port.tag.logotype">[logotype]</li>
+              <li data-i18n="port.tag.lawtech">[law tech]</li>
+            </ul>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="hero-actions center reveal">
+      <a class="hbtn hbtn-rosa" href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener" data-i18n="port.cta_behance">Full archive on Behance <span class="px">→</span></a>
+      <a class="hbtn hbtn-lima" href="index.html#resume" data-i18n="port.cta_resume">Read the résumé <span class="px">→</span></a>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="f-content">
+      <p class="f-kicker px" data-i18n="footer.tag">[ get in touch ]</p>
+      <div class="f-mail-row">
+        <div class="f-mail-col">
+          <a class="f-mail" href="mailto:hello@brunalopesdesign.com">hello@<br>brunalopes<br>design.com</a>
+          <a class="f-phone" href="tel:+5562981192575">+55 62 98119-2575</a>
+        </div>
+        <div class="f-links">
+          <a href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener" data-i18n="footer.behance">Behance</a>
+          <a href="https://www.linkedin.com/in/maria-bruna-lopes" target="_blank" rel="noopener" data-i18n="footer.linkedin">LinkedIn</a>
+          <a href="index.html#resume" data-i18n="footer.resume">Résumé</a>
+        </div>
+      </div>
+      <p class="f-note" data-i18n="footer.note.pages">Designed by Bruna Lopes · Co-coded with Claude · 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

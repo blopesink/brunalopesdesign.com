@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Bruna Lopes</title>
-  <meta name="description" content="Selected projects by Maria Bruna Lopes — graphic design, branding and illustration alongside UI/UX and design-to-code.">
+  <meta name="description" content="Selected work by Maria Bruna Lopes — an interactive CRM prototype and the full design archive on Behance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Besley:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -28,134 +28,28 @@
   </header>
 
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero page-hero--split">
-    <div class="ph-split">
-      <div class="ph-illustration">
-        <img class="ph-blob" src="img/blob-hero-design.svg" alt="" aria-hidden="true" data-depth="0.12" data-scale-in="1.05" data-scale-to="0.98" data-scale-trigger="page" data-scale-range="400">
-        <img class="ph-figure" src="img/olho-design-hero.png" alt="Illustrated eye artwork, from Bruna's authorial illustration and tattoo practice" data-i18n-attr="alt:port.figure_alt" data-depth="0.3" data-scale-in="0.94" data-scale-to="1.03" data-scale-trigger="page" data-scale-range="400">
-        <img class="ph-beziers" src="img/beziers-design-hero.svg" alt="" aria-hidden="true" data-depth="0.55" data-scale-in="0.85" data-scale-to="1.1" data-scale-trigger="page" data-scale-range="400">
-      </div>
-      <div class="ph-copy">
-        <p class="hero-kicker" data-i18n="port.hero_kicker"><span class="px">✳ design</span> &amp; ui/ux</p>
-        <h1 class="page-title" data-i18n="port.title">Portfolio</h1>
-        <p class="page-lede" data-i18n="port.page_lede">Brand identity, packaging and illustration on one side; research, prototyping and design-to-code interfaces on the other. Selected projects from both paths, in one place.</p>
-      </div>
-    </div>
+  <!-- Versão enxuta: só dois links externos. A página completa, com os cards dos
+       projetos, está guardada em portfolio-completo.html (escondida; fora do deploy). -->
+  <section class="page-hero">
+    <p class="hero-kicker" data-i18n="port.hero_kicker"><span class="px">✳ design</span> &amp; ui/ux</p>
+    <h1 class="page-title" data-i18n="port.title">Portfolio</h1>
+    <p class="page-lede" data-i18n="port.simple.lede">Two ways in: an interactive HTML prototype of a CRM module I designed for Nexus, and my full design archive on Behance.</p>
+    <p class="pf-note" role="status" data-i18n="idx.hero.construction">Site under construction</p>
   </section>
 
-  <!-- ============ PROJECTS ============ -->
-  <!-- Each .case is one project. The area modifier sets the blob + tag colour:
-         case--design → rosa blob (img/design-blob-NN.svg), vinho tag text
-         case--uiux   → lima blob (img/ux-ui-blob-NN.svg), melancia tag text
-       The number (case--1…6) is the collage slot (position + blob shape), so
-       alternating design / ui/ux means alternating the area on slots 1…6.
-       A project with a published case is an <a class="case …" href="cases/…">
-       instead of a <div> — the whole card is the link. -->
-  <main class="projects">
-    <h2 class="areas-title reveal" data-i18n="port.projects_title"><span class="px">✳</span> Projects</h2>
+  <!-- ============ LINKS ============ -->
+  <main class="pf-links">
+    <a class="hbtn hbtn-lima pf-link reveal" href="https://prototipos-nexus.netlify.app/views/detalhe-oportunidade.html" target="_blank" rel="noopener">
+      <span class="pf-link-title" data-i18n="port.link1.title">Nexus CRM — opportunity detail</span>
+      <span class="pf-link-desc" data-i18n="port.link1.desc">Interactive HTML prototype · law tech · interface in Portuguese</span>
+      <span class="pf-link-go" data-i18n="port.link.go">open <span class="px">→</span></span>
+    </a>
 
-    <div class="case-collage">
-      <div class="case case--1 case--design reveal">
-        <div class="case-thumb"></div>
-        <div class="case-tag">
-          <img class="case-tag-shape" src="img/design-blob-01.svg" alt="" aria-hidden="true">
-          <div class="case-tag-content">
-            <h3 class="case-tag-title">Yoga <span class="amp">&amp;</span> Meditation</h3>
-            <ul class="case-tag-list">
-              <li>[zen com a gente]</li>
-              <li>[branding]</li>
-              <li>[naming]</li>
-              <li>[voluntering]</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="case case--2 case--uiux reveal">
-        <div class="case-tag">
-          <img class="case-tag-shape" src="img/ux-ui-blob-02.svg" alt="" aria-hidden="true">
-          <div class="case-tag-content">
-            <h3 class="case-tag-title">Law <span class="amp">&amp;</span> Sales</h3>
-            <ul class="case-tag-list">
-              <li>[naming]</li>
-              <li>[crm]</li>
-              <li>[branding]</li>
-              <li>[voluntering]</li>
-            </ul>
-          </div>
-        </div>
-        <div class="case-thumb"></div>
-      </div>
-
-      <div class="case case--3 case--design reveal">
-        <div class="case-thumb"></div>
-        <div class="case-tag">
-          <img class="case-tag-shape" src="img/design-blob-03.svg" alt="" aria-hidden="true">
-          <div class="case-tag-content">
-            <h3 class="case-tag-title">Title <span class="amp">&amp;</span> Clue</h3>
-            <ul class="case-tag-list">
-              <li>[zen com a gente]</li>
-              <li>[branding]</li>
-              <li>[naming]</li>
-              <li>[voluntering]</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="case case--4 case--uiux reveal">
-        <div class="case-tag">
-          <img class="case-tag-shape" src="img/ux-ui-blob-04.svg" alt="" aria-hidden="true">
-          <div class="case-tag-content">
-            <h3 class="case-tag-title">Title <span class="amp">&amp;</span> Clue</h3>
-            <ul class="case-tag-list">
-              <li>[zen com a gente]</li>
-              <li>[branding]</li>
-              <li>[naming]</li>
-              <li>[voluntering]</li>
-            </ul>
-          </div>
-        </div>
-        <div class="case-thumb"></div>
-      </div>
-
-      <a class="case case--5 case--design reveal" href="cases/ultimatum/index.html">
-        <div class="case-thumb"></div>
-        <div class="case-tag">
-          <img class="case-tag-shape" src="img/design-blob-05.svg" alt="" aria-hidden="true">
-          <div class="case-tag-content">
-            <h3 class="case-tag-title">Law <span class="amp">&amp;</span> Sales</h3>
-            <ul class="case-tag-list">
-              <li>[naming]</li>
-              <li>[crm]</li>
-              <li>[branding]</li>
-              <li>[voluntering]</li>
-            </ul>
-          </div>
-        </div>
-      </a>
-
-      <div class="case case--6 case--uiux reveal">
-        <div class="case-thumb"></div>
-        <div class="case-tag">
-          <img class="case-tag-shape" src="img/ux-ui-blob-05.svg" alt="" aria-hidden="true">
-          <div class="case-tag-content">
-            <h3 class="case-tag-title">Law <span class="amp">&amp;</span> Sales</h3>
-            <ul class="case-tag-list">
-              <li>[naming]</li>
-              <li>[crm]</li>
-              <li>[branding]</li>
-              <li>[voluntering]</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-actions center reveal">
-      <a class="hbtn hbtn-rosa" href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener" data-i18n="port.cta_behance">Full archive on Behance <span class="px">→</span></a>
-      <a class="hbtn hbtn-lima" href="index.html#resume" data-i18n="port.cta_resume">Read the résumé <span class="px">→</span></a>
-    </div>
+    <a class="hbtn hbtn-rosa pf-link reveal" href="https://www.behance.net/mariabrunalopes" target="_blank" rel="noopener">
+      <span class="pf-link-title" data-i18n="port.link2.title">Behance — full archive</span>
+      <span class="pf-link-desc" data-i18n="port.link2.desc">Brand identity, illustration, murals and more</span>
+      <span class="pf-link-go" data-i18n="port.link.go">open <span class="px">→</span></span>
+    </a>
   </main>
 
   <footer class="site-footer" id="contact">
@@ -172,7 +66,7 @@
           <a href="index.html#resume" data-i18n="footer.resume">Résumé</a>
         </div>
       </div>
-      <p class="f-note" data-i18n="footer.note.pages">Designed & hand-coded by Bruna Lopes ✠ MMXXVI</p>
+      <p class="f-note" data-i18n="footer.note.pages">Designed by Bruna Lopes · Co-coded with Claude · 2026</p>
     </div>
   </footer>
 

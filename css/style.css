@@ -593,6 +593,53 @@ body::after {
 .page-lede { max-width: 38rem; font-size: 1.15rem; }
 .page-hero .hero-actions { margin-top: 2rem; }
 
+/* portfolio.html (versão enxuta) — aviso de construção + dois links externos.
+   O aviso repete o visual do .hero-construction da index, mas em fluxo normal. */
+.pf-note {
+  display: inline-block;
+  margin: 1.6rem 0 0;
+  font-family: var(--font-type);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  letter-spacing: 0.02em;
+  color: var(--vinho);
+  background: var(--lima);
+  padding: 0.5rem 1.3rem;
+}
+.pf-links {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 6vw 7rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.4rem;
+}
+/* .hbtn.pf-link (duas classes): .hbtn é definido mais abaixo e, com uma classe só,
+   o padding dele sobrescreveria o daqui */
+.hbtn.pf-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 3rem 2.2rem 2.2rem;
+}
+.pf-link-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+/* .hbtn (mais abaixo no arquivo) força lowercase; a descrição precisa de maiúsculas normais */
+.pf-link-desc { font-family: var(--font-type); font-size: 1rem; text-transform: none; }
+.pf-link-go {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  font-family: var(--font-type);
+  font-size: 1.05rem;
+  text-transform: lowercase;
+}
+@media (max-width: 760px) {
+  .pf-links { grid-template-columns: 1fr; }
+}
+
 /* =========================================================
    PAGE HERO — split (illustration blob + copy)
    used by portfolio.html; resume.html keeps the plain

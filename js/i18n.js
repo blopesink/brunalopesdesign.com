@@ -6,9 +6,9 @@
    Language is persisted in localStorage under "site-lang" and applies across
    every page (index.html, portfolio.html, resume.html) since they all load
    this file.
-   NOTE: the case-collage placeholders (portfolio.html project grid) are
-   intentionally left untagged — filler text pending real case content
-   (see TAREFAS.md Bloco 6), not worth translating twice. */
+   NOTE: the case-collage cards (portfolio.html project grid) carry real names
+   and tags now; only the strings that change by language are keyed
+   (port.case5.title, port.tag.*) — the rest reads the same in EN/PT. */
 
 const translations = {
   en: {
@@ -21,8 +21,8 @@ const translations = {
     "footer.behance": "Behance",
     "footer.linkedin": "LinkedIn",
     "footer.resume": "Résumé",
-    "footer.note.index": 'Designed by Bruna Lopes <span class="px">*</span> 2026',
-    "footer.note.pages": "Designed & hand-coded by Bruna Lopes ✠ MMXXVI",
+    "footer.note.index": 'Designed by Bruna Lopes <span class="px">*</span> Co-coded with Claude <span class="px">*</span> 2026',
+    "footer.note.pages": "Designed by Bruna Lopes · Co-coded with Claude · 2026",
 
     /* ---- shared: cv-tag / cv-label bracket tags ---- */
     "tag.contact": "[ contact ]",
@@ -56,7 +56,7 @@ const translations = {
     "idx.work.pdf_design": "PDF — Design",
     "idx.work.pdf_uiux": "PDF — UI/UX",
     "idx.rm.contact_h3": "Contact & Details",
-    "idx.rm.education_value": '<span class="emph-2">BA in Graphic Design</span><br>Universidade Federal de Goiás — 2005/2010',
+    "idx.rm.education_value": '<span class="emph-2">BA in Visual Arts</span><br>Universidade Federal de Goiás — 2005/2010',
     "idx.rm.languages_value": 'Portuguese <span class="emph-2">native</span><br>English <span class="emph-2">fluent</span>',
     "idx.rm.profile_h3": "Profile",
     "idx.rm.profile_p": "With 20 years in Graphic Design and UI/UX, I combine technical rigor with artistic sensitivity to create user-centered experiences. Applying Semiotics and Gestalt principles, I communicate deeply through every layer of a layout — from print and packaging to brand systems and digital products. My parallel journey as a muralist and tattoo artist broadens my creative range and gives me the flexibility to solve visual problems on any medium; with Design Thinking, I turn complex requirements into user journeys and implementation-ready interfaces, prototyping my own solutions in HTML, CSS and JavaScript.",
@@ -89,7 +89,23 @@ const translations = {
     "port.projects_title": '<span class="px">✳</span> Projects',
     "port.cta_behance": 'Full archive on Behance <span class="px">→</span>',
     "port.cta_resume": 'Read the résumé <span class="px">→</span>',
+    "port.simple.lede": "Two ways in: an interactive HTML prototype of a CRM module I designed for Nexus, and my full design archive on Behance.",
+    "port.link1.title": "Nexus CRM — opportunity detail",
+    "port.link1.desc": "Interactive HTML prototype · law tech · interface in Portuguese",
+    "port.link2.title": "Behance — full archive",
+    "port.link2.desc": "Brand identity, illustration, murals and more",
+    "port.link.go": 'open <span class="px">→</span>',
     "port.figure_alt": "Illustrated eye artwork, from Bruna's authorial illustration and tattoo practice",
+    "port.case5.title": "Nexus CRM Module",
+    "port.tag.lawtech": "[law tech]",
+    "port.tag.d2c": "[design-to-code]",
+    "port.tag.uxresearch": "[ux research]",
+    "port.tag.market": "[market analysis]",
+    "port.tag.visualid": "[visual identity]",
+    "port.tag.volunteering": "[volunteering]",
+    "port.tag.illustration": "[illustration]",
+    "port.tag.karaoke": "[karaoke]",
+    "port.tag.logotype": "[logotype]",
 
     /* ---- resume.html ---- */
     "res.title": "Résumé — Bruna Lopes",
@@ -97,7 +113,7 @@ const translations = {
     "res.page_lede": "Senior Graphic Designer & Visual Artist / UI/UX Designer — design-to-code. Goiânia, Brazil (remote).",
     "res.download_design": 'Download PDF — Design <span class="px">↓</span>',
     "res.download_uiux": 'Download PDF — UI/UX <span class="px">↓</span>',
-    "res.education_value": "BA in Graphic Design<br>Universidade Federal de Goiás — 2005/2010",
+    "res.education_value": "BA in Visual Arts<br>Universidade Federal de Goiás — 2005/2010",
     "res.languages_value": "Portuguese (native)<br>English (fluent)",
     "res.section01_h2": '<span class="px">01</span> Profile',
     "res.profile_p": "With 20 years in Graphic Design and UI/UX, I combine technical rigor with artistic sensitivity to create user-centered experiences. Applying Semiotics and Gestalt principles, I communicate deeply through every layer of a layout — from print and packaging to brand systems and digital products. My parallel journey as a muralist and tattoo artist broadens my creative range and gives me the flexibility to solve visual problems on any medium; with Design Thinking, I turn complex requirements into user journeys and implementation-ready interfaces, prototyping my own solutions in HTML, CSS and JavaScript.",
@@ -132,8 +148,8 @@ const translations = {
     "footer.behance": "Behance",
     "footer.linkedin": "LinkedIn",
     "footer.resume": "Currículo",
-    "footer.note.index": 'Criado por Bruna Lopes <span class="px">*</span> 2026',
-    "footer.note.pages": "Criado e codificado à mão por Bruna Lopes ✠ MMXXVI",
+    "footer.note.index": 'Criado por Bruna Lopes <span class="px">*</span> Co-codificado com Claude <span class="px">*</span> 2026',
+    "footer.note.pages": "Criado por Bruna Lopes · Co-codificado com Claude · 2026",
 
     "tag.contact": "[ contato ]",
     "tag.links": "[ links ]",
@@ -165,7 +181,7 @@ const translations = {
     "idx.work.pdf_design": "PDF — Design",
     "idx.work.pdf_uiux": "PDF — UI/UX",
     "idx.rm.contact_h3": "Contato & Detalhes",
-    "idx.rm.education_value": '<span class="emph-2">Bacharelado em Design Gráfico</span><br>Universidade Federal de Goiás — 2005/2010',
+    "idx.rm.education_value": '<span class="emph-2">Bacharelado em Artes Visuais</span><br>Universidade Federal de Goiás — 2005/2010',
     "idx.rm.languages_value": 'Português <span class="emph-2">nativo</span><br>Inglês <span class="emph-2">fluente</span>',
     "idx.rm.profile_h3": "Perfil",
     "idx.rm.profile_p": "Com 20 anos em Design Gráfico e UI/UX, combino rigor técnico com sensibilidade artística para criar experiências centradas no usuário. Aplicando princípios de Semiótica e Gestalt, comunico com profundidade em cada camada de um layout — do impresso e embalagens a sistemas de marca e produtos digitais. Minha trajetória paralela como muralista e tatuadora amplia meu repertório criativo e me dá flexibilidade para resolver problemas visuais em qualquer meio; com Design Thinking, transformo requisitos complexos em jornadas de usuário e interfaces prontas para implementação, prototipando minhas próprias soluções em HTML, CSS e JavaScript.",
@@ -197,14 +213,30 @@ const translations = {
     "port.projects_title": '<span class="px">✳</span> Projetos',
     "port.cta_behance": 'Arquivo completo no Behance <span class="px">→</span>',
     "port.cta_resume": 'Ler o currículo <span class="px">→</span>',
+    "port.simple.lede": "Duas formas de conhecer meu trabalho: um protótipo interativo em HTML de um módulo de CRM que desenhei para o Nexus e o arquivo completo de design no Behance.",
+    "port.link1.title": "Nexus CRM — detalhe da oportunidade",
+    "port.link1.desc": "Protótipo interativo em HTML · tecnologia jurídica · interface em português",
+    "port.link2.title": "Behance — arquivo completo",
+    "port.link2.desc": "Identidade de marca, ilustração, murais e mais",
+    "port.link.go": 'abrir <span class="px">→</span>',
     "port.figure_alt": "Ilustração de um olho, da prática autoral de ilustração e tatuagem de Bruna",
+    "port.case5.title": "Nexus Módulo CRM",
+    "port.tag.lawtech": "[tecnologia jurídica]",
+    "port.tag.d2c": "[design ao código]",
+    "port.tag.uxresearch": "[pesquisa ux]",
+    "port.tag.market": "[análise de mercado]",
+    "port.tag.visualid": "[identidade visual]",
+    "port.tag.volunteering": "[voluntariado]",
+    "port.tag.illustration": "[ilustração]",
+    "port.tag.karaoke": "[karaokê]",
+    "port.tag.logotype": "[logotipo]",
 
     "res.title": "Currículo — Bruna Lopes",
     "res.hero_kicker": '<span class="px">✳ o</span> Currículo',
     "res.page_lede": "Designer Gráfica Sênior & Artista Visual / UI/UX Designer — design-to-code. Goiânia, Brasil (remoto).",
     "res.download_design": 'Baixar PDF — Design <span class="px">↓</span>',
     "res.download_uiux": 'Baixar PDF — UI/UX <span class="px">↓</span>',
-    "res.education_value": "Bacharelado em Design Gráfico<br>Universidade Federal de Goiás — 2005/2010",
+    "res.education_value": "Bacharelado em Artes Visuais<br>Universidade Federal de Goiás — 2005/2010",
     "res.languages_value": "Português (nativo)<br>Inglês (fluente)",
     "res.section01_h2": '<span class="px">01</span> Perfil',
     "res.profile_p": "Com 20 anos em Design Gráfico e UI/UX, combino rigor técnico com sensibilidade artística para criar experiências centradas no usuário. Aplicando princípios de Semiótica e Gestalt, comunico com profundidade em cada camada de um layout — do impresso e embalagens a sistemas de marca e produtos digitais. Minha trajetória paralela como muralista e tatuadora amplia meu repertório criativo e me dá flexibilidade para resolver problemas visuais em qualquer meio; com Design Thinking, transformo requisitos complexos em jornadas de usuário e interfaces prontas para implementação, prototipando minhas próprias soluções em HTML, CSS e JavaScript.",
